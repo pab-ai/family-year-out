@@ -108,8 +108,16 @@
     margin-top:36px; border:1px solid var(--line); border-radius:12px;
     overflow:hidden; background:var(--card);
   }
-  .overview-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
-  .overview table{width:100%; min-width:560px; border-collapse:collapse;}
+  .overview-scroll{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    padding:0 8px;
+  }
+  .overview table{
+    width:auto;
+    min-width:560px;
+    border-collapse:collapse;
+  }
   .overview th{
     text-align:left; font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
     letter-spacing:0.06em; color:var(--ink-soft); font-weight:600;
