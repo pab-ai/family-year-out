@@ -1,1 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penny–Nording Family — Year Out</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #f6f1e6;
+    --paper-dim: #efe8d8;
+    --ink: #1c2b27;
+    --ink-soft: #4a5a54;
+    --teal: #0f5c55;
+    --teal-deep: #0a3f3a;
+    --gold: #c8973c;
+    --coral: #d85c3f;
+    --sky: #26436b;
+    --line: rgba(28,43,39,0.14);
+    --card: #fffdf7;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  [id]{scroll-margin-top:90px;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-size:16px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold); color:var(--teal-deep);}
 
+  h1,h2,h3,.display{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+  }
+  a{color:inherit;}
+
+  .wrap{max-width:1080px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- top nav ---------- */
+  .topnav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,241,230,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .topnav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:14px; padding-bottom:14px;
+    max-width:1080px;
+  }
+  .brand{font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:0.06em; text-transform:uppercase; color:var(--teal-deep); font-weight:600;}
+  .navlinks{display:flex; gap:22px; font-size:13px;}
+  .navlinks a{text-decoration:none; color:var(--ink-soft); font-family:'IBM Plex Mono', monospace; letter-spacing:0.02em;}
+  .navlinks a:hover{color:var(--coral);}
+  @media (max-width:700px){ .navlinks{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding:88px 0 70px;
+    position:relative;
+    overflow:hidden;
+    background:
+      radial-gradient(ellipse 700px 400px at 85% -10%, rgba(200,151,60,0.18), transparent 60%),
+      radial-gradient(ellipse 600px 400px at 5% 110%, rgba(15,92,85,0.14), transparent 60%);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--teal); font-weight:600; margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:""; width:24px; height:1px; background:var(--gold);}
+  .hero h1{
+    font-size:clamp(40px, 6.4vw, 74px);
+    line-height:0.98;
+    color:var(--teal-deep);
+    max-width:16ch;
+  }
+  .hero h1 em{font-style:italic; color:var(--coral); font-weight:500;}
+  .hero-sub{
+    margin-top:24px; max-width:52ch; font-size:17.5px; color:var(--ink-soft);
+  }
+  .hero-meta{
+    margin-top:44px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .hero-meta div{padding:18px 20px; border-left:1px solid var(--line);}
+  .hero-meta div:first-child{border-left:none;}
+  .hero-meta .k{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--ink-soft); margin-bottom:6px;}
+  .hero-meta .v{font-family:'Fraunces', serif; font-size:19px; font-weight:600; color:var(--ink);}
+  @media (max-width:700px){ .hero-meta{grid-template-columns:1fr 1fr;} .hero-meta div{border-left:none; border-top:1px solid var(--line);} }
+
+  /* ---------- overview table ---------- */
+  .overview{
+    margin-top:36px; border:1px solid var(--line); border-radius:12px;
+    overflow:hidden; background:var(--card);
+  }
+  .overview-scroll{overflow-x:auto; -webkit-overflow-scrolling:touch;}
+  .overview table{width:100%; min-width:560px; border-collapse:collapse;}
+  .overview th{
+    text-align:left; font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--ink-soft); font-weight:600;
+    padding:12px 18px; background:var(--paper-dim); border-bottom:1px solid var(--line);
+    white-space:nowrap;
+  }
+  .overview td{
+    padding:10px 18px; font-size:14px; border-bottom:1px solid var(--line);
+  }
+  .overview tr:last-child td{border-bottom:none;}
+  .overview .place{font-family:'Fraunces', serif; font-weight:600; color:var(--ink); white-space:nowrap;}
+  .overview .place a{color:inherit; text-decoration:none; border-bottom:1px solid transparent;}
+  .overview .place a:hover{color:var(--coral); border-bottom-color:var(--coral);}
+  .overview .dates{font-family:'IBM Plex Mono', monospace; color:var(--ink-soft); font-size:12.5px; white-space:nowrap;}
+  .overview .nights{color:var(--gold); margin-left:8px;}
+  .overview .hotel a{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal); text-decoration:none; white-space:nowrap;}
+  .overview .hotel a:hover{color:var(--coral);}
+  .overview .hotel.dash{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--line);}
+  .overview tr.hub td{background:rgba(15,92,85,0.06);}
+  .overview tr.hub .place{color:var(--teal-deep);}
+  .overview tr.tbd .place, .overview tr.tbd .dates{color:var(--coral); opacity:0.85;}
+  @media (max-width:600px){ .overview th, .overview td{padding:9px 12px; font-size:12.5px;} }
+
+  /* ---------- section shell ---------- */
+  section{padding:64px 0;}
+  .sec-head{display:flex; align-items:baseline; justify-content:space-between; gap:20px; margin-bottom:34px; flex-wrap:wrap;}
+  .sec-num{font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--gold); font-weight:600;}
+  .sec-head h2{font-size:clamp(26px,3.4vw,36px); color:var(--teal-deep);}
+  .sec-tag{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em;}
+  .divider{height:1px; background:var(--line); margin:0;}
+
+  /* ---------- flight strip (kept deliberately low-key) ---------- */
+  .pass{
+    background:var(--teal-deep);
+    color:var(--paper);
+    border-radius:10px;
+    display:grid; grid-template-columns:1fr 1fr auto;
+    overflow:hidden;
+    max-width:620px;
+    box-shadow:0 8px 18px -12px rgba(10,63,58,0.45);
+  }
+  .pass-seg{padding:12px 16px; position:relative;}
+  .pass-seg + .pass-seg{border-left:1px dashed rgba(246,241,230,0.24);}
+  .pass .code{font-family:'Fraunces', serif; font-size:20px; font-weight:700; line-height:1;}
+  .pass .city{font-family:'IBM Plex Mono', monospace; font-size:9.5px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(246,241,230,0.6); margin-top:4px;}
+  .pass .time{font-family:'Fraunces', serif; font-size:13.5px; margin-top:6px;}
+  .pass .date{font-family:'IBM Plex Mono', monospace; font-size:10px; color:rgba(246,241,230,0.6); margin-top:1px;}
+  .pass-stub{
+    background:rgba(0,0,0,0.14);
+    padding:12px 14px;
+    display:flex; flex-direction:column; justify-content:center; gap:6px;
+    min-width:150px;
+  }
+  .pass-stub .row{display:flex; flex-direction:column; gap:1px;}
+  .pass-stub .k{font-family:'IBM Plex Mono', monospace; font-size:8.5px; text-transform:uppercase; letter-spacing:0.06em; color:rgba(246,241,230,0.5);}
+  .pass-stub .v{font-family:'IBM Plex Mono', monospace; font-size:11.5px; font-weight:600;}
+  .pass-note{
+    display:none;
+  }
+  @media (max-width:760px){ .pass{grid-template-columns:1fr; max-width:100%;} .pass-seg + .pass-seg{border-left:none; border-top:1px dashed rgba(246,241,230,0.24);} }
+
+  .layover{
+    display:flex; align-items:center; gap:12px; margin:18px 0 0; font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--ink-soft);
+  }
+  .layover .dot{width:6px; height:6px; border-radius:50%; background:var(--gold);}
+  .layover .track{flex:1; height:1px; background:repeating-linear-gradient(90deg, var(--line) 0 6px, transparent 6px 11px);}
+
+  .pax-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px;}
+  .pax{
+    background:var(--card); border:1px solid var(--line); border-radius:999px;
+    padding:8px 16px; font-family:'IBM Plex Mono', monospace; font-size:12.5px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .pax .dot2{width:6px;height:6px;border-radius:50%; background:var(--teal);}
+
+  /* ---------- timeline ---------- */
+  .timeline{position:relative; margin-top:8px;}
+  .timeline::before{
+    content:""; position:absolute; left:15px; top:6px; bottom:6px; width:2px;
+    background:linear-gradient(var(--teal), var(--gold), var(--coral));
+    opacity:0.35;
+  }
+  .tl-item{position:relative; padding-left:52px; margin-bottom:34px;}
+  .tl-item:last-child{margin-bottom:0;}
+  .tl-dot{
+    position:absolute; left:0; top:2px; width:32px; height:32px; border-radius:50%;
+    background:var(--card); border:2px solid var(--teal); color:var(--teal-deep);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace; font-size:12px; font-weight:600;
+  }
+  .tl-item.active .tl-dot{background:var(--coral); border-color:var(--coral); color:var(--paper);}
+  .tl-card{
+    background:var(--card); border:1px solid var(--line); border-radius:12px; padding:20px 22px;
+  }
+  .tl-top{display:flex; justify-content:space-between; align-items:baseline; gap:14px; flex-wrap:wrap;}
+  .tl-title{font-family:'Fraunces', serif; font-weight:600; font-size:19px; color:var(--teal-deep);}
+  .tl-dates{font-family:'IBM Plex Mono', monospace; font-size:12.5px; color:var(--coral); font-weight:600; white-space:nowrap;}
+  .tl-desc{margin-top:8px; color:var(--ink-soft); font-size:14.5px; max-width:65ch;}
+  .tl-meta{margin-top:12px; display:flex; gap:16px; flex-wrap:wrap;}
+  .tl-meta span{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); background:var(--paper-dim); border-radius:6px; padding:4px 9px;}
+
+  /* ---------- bali legs strip ---------- */
+  .legstrip{display:grid; grid-template-columns:repeat(5,1fr); gap:14px;}
+  @media (max-width:900px){ .legstrip{grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:520px){ .legstrip{grid-template-columns:1fr;} }
+  .leg{
+    background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px 16px;
+    border-top:3px solid var(--teal);
+  }
+  .leg:nth-child(2){border-top-color:var(--gold);}
+  .leg:nth-child(3){border-top-color:var(--coral);}
+  .leg:nth-child(4){border-top-color:var(--sky);}
+  .leg:nth-child(5){border-top-color:var(--teal-deep);}
+  .leg .n{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em;}
+  .leg .d{font-family:'Fraunces', serif; font-size:16px; font-weight:600; margin-top:6px; line-height:1.25;}
+  .leg .len{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--coral); margin-top:8px;}
+
+  /* ---------- card grid (essentials) ---------- */
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media (max-width:860px){ .grid3{grid-template-columns:1fr 1fr;} }
+  @media (max-width:560px){ .grid3{grid-template-columns:1fr;} }
+  .info-card{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:22px;}
+  .info-card h3{font-size:17px; color:var(--teal-deep); margin-bottom:10px; display:flex; align-items:center; gap:10px;}
+  .info-card .ic{width:8px; height:8px; border-radius:50%; background:var(--gold); flex:none;}
+  .info-card p{margin:0; color:var(--ink-soft); font-size:14px;}
+  .info-card .fact{margin-top:12px; padding-top:12px; border-top:1px solid var(--line); font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink);}
+  .info-card .addr{margin-top:10px; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); line-height:1.5;}
+  .info-card .addr a{color:var(--teal); font-weight:600; text-decoration:none; border-bottom:1px dotted var(--teal);}
+  .info-card .addr a:hover{color:var(--coral); border-bottom-color:var(--coral);}
+
+  /* ---------- route map (malaysia) ---------- */
+  .route{
+    display:flex; align-items:center; overflow-x:auto; gap:0; padding:26px 4px;
+    -ms-overflow-style:none; scrollbar-width:none;
+  }
+  .route::-webkit-scrollbar{display:none;}
+  .stop{
+    flex:none; text-align:center; position:relative; padding:0 26px;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .stop .pt{width:14px; height:14px; border-radius:50%; background:var(--teal); border:3px solid var(--paper); box-shadow:0 0 0 1px var(--teal); margin:0 auto 10px;}
+  .stop .name{font-size:13px; font-weight:600; color:var(--ink); white-space:nowrap;}
+  .stop .tag{font-size:10.5px; color:var(--ink-soft); margin-top:3px; white-space:nowrap;}
+  .seg-line{flex:none; width:60px; height:2px; background:repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 12px); margin-top:-24px;}
+
+  footer{
+    padding:50px 0 70px; border-top:1px solid var(--line); margin-top:20px;
+  }
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;}
+  footer .f-brand{font-family:'Fraunces', serif; font-size:20px; color:var(--teal-deep);}
+  footer .f-note{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);}
+
+  .callout{
+    background:var(--teal-deep); color:var(--paper); border-radius:12px; padding:20px 24px;
+    font-size:14px; display:flex; gap:14px; align-items:flex-start; margin-top:26px;
+  }
+  .callout b{color:var(--gold); font-family:'IBM Plex Mono', monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; flex:none; padding-top:2px;}
+  /* ---------- journey map ---------- */
+  .map-wrap{
+    background:var(--card); border:1px solid var(--line); border-radius:16px;
+    padding:20px; overflow:hidden;
+  }
+  .map-wrap svg{width:100%; height:auto; display:block;}
+  .map-legend{display:flex; flex-wrap:wrap; gap:18px; margin-top:18px;}
+  .map-legend .li{display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--ink-soft);}
+  .map-legend .sw{width:16px; height:2px; flex:none;}
+  .map-legend .sw.solid{background:var(--teal);}
+  .map-legend .sw.dash{background:repeating-linear-gradient(90deg, var(--coral) 0 5px, transparent 5px 9px);}
+  .map-legend .dot-sw{width:9px; height:9px; border-radius:50%; flex:none;}
+
+  /* ---------- travel diary ---------- */
+  .diary-head{margin-bottom:8px;}
+  .diary-head h3{font-family:'Fraunces', serif; font-size:24px; color:var(--teal-deep); font-weight:600;}
+  .diary-head p{font-size:14.5px; color:var(--ink-soft); margin-top:6px; max-width:60ch;}
+  .diary-entry{
+    display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center;
+    margin:38px 0;
+  }
+  .diary-entry.flip .diary-photo{order:2;}
+  .diary-entry.flip .diary-text{order:1;}
+  .diary-photo img{
+    width:100%; height:auto; display:block; border-radius:14px;
+    box-shadow:0 22px 40px -20px rgba(28,43,39,0.45);
+  }
+  .diary-photo .cap{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
+    margin-top:9px; letter-spacing:0.02em;
+  }
+  .diary-photo-pair{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .diary-photo-pair img{width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 16px 30px -16px rgba(28,43,39,0.4);}
+  .diary-text .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:600; margin-bottom:8px; display:block;}
+  .diary-text h4{font-family:'Fraunces', serif; font-size:20px; color:var(--ink); margin-bottom:8px; font-weight:600;}
+  .diary-text p{font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0;}
+  @media (max-width:760px){
+    .diary-entry, .diary-entry.flip{grid-template-columns:1fr;}
+    .diary-entry.flip .diary-photo, .diary-entry.flip .diary-text{order:initial;}
+  }
+
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <div class="brand">Penny · Nording — Year Out</div>
+    <div class="navlinks">
+      <a href="#departure">Departure</a>
+      <a href="#malaysia">Malaysia</a>
+      <a href="#bali">Bali</a>
+      <a href="#beyond">Beyond</a>
+      <a href="#essentials">Essentials</a>
+      <a href="#map">Map</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">14 Jul 2026 → 14 Jul 2027 · Bali home base</div>
+    <h1>A year on the move,<br><em>rooted</em> in Ubud, Bali.</h1>
+    <div class="overview">
+      <div class="overview-scroll">
+      <table>
+        <tr><th>Where</th><th>When</th><th>Hotel</th></tr>
+        <tr><td class="place"><a href="#loc-kl">Kuala Lumpur 🇲🇾</a></td><td class="dates">15 – 18 Jul <span class="nights">3 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=3.158515,101.704491" target="_blank" rel="noopener">Infinity Pool Studio ↗</a></td></tr>
+        <tr><td class="place"><a href="#loc-ipoh">Ipoh 🇲🇾</a></td><td class="dates">18 – 19 Jul <span class="nights">1 night</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=292+Jalan+Sultan+Idris+Shah+30000+Ipoh+Perak+Malaysia" target="_blank" rel="noopener">Weil Hotel Ipoh ↗</a></td></tr>
+        <tr><td class="place"><a href="#loc-penang">Penang 🇲🇾</a></td><td class="dates">19 – 24 Jul <span class="nights">5 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=22+Jalan+Macalister+10400+George+Town+Penang+Malaysia" target="_blank" rel="noopener">22 Macalisterz ↗</a></td></tr>
+        <tr><td class="place"><a href="#loc-jandabaik">Janda Baik 🇲🇾</a></td><td class="dates">24 – 25 Jul <span class="nights">1 night</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=Sailor%27s+Rest+Lorong+Dato+Panglima+Kuala+Lurah+28750+Kampung+Janda+Baik+Malaysia" target="_blank" rel="noopener">Sailor's Rest ↗</a></td></tr>
+        <tr><td class="place"><a href="#loc-rompin">Kuala Rompin 🇲🇾</a></td><td class="dates">25 – 26 Jul <span class="nights">1 night</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=Rompin+Beach+Resorts+Lot+340+Jalan+Pantai+Hiburan+26800+Kuala+Rompin+Malaysia" target="_blank" rel="noopener">Rompin Beach Resorts ↗</a></td></tr>
+        <tr><td class="place"><a href="#loc-island">Pulau Besar 🇲🇾</a></td><td class="dates">26 – 29 Jul <span class="nights">3 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=Aseania+Resort+Pulau+Besar+Lot+35+Pulau+Besar+86800+Mersing+Johor" target="_blank" rel="noopener">Aseania Resort ↗</a></td></tr>
+        <tr><td class="place"><a href="#loc-singapore">Singapore 🇸🇬</a></td><td class="dates">29 Jul – 1 Aug <span class="nights">3 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=1.286572,103.84449" target="_blank" rel="noopener">Furama City Centre ↗</a></td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-1">Bali · Leg 1 🇮🇩</a></td><td class="dates">1 Aug – 10 Oct <span class="nights">70 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=-8.527339,115.293843" target="_blank" rel="noopener">Sairam House ↗</a></td></tr>
+        <tr><td class="place"><a href="#loc-hongkong">Hong Kong 🇭🇰</a></td><td class="dates">10 – 14 Oct <span class="nights">4 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr><td class="place"><a href="#loc-vietnam">China &amp; Vietnam 🇨🇳🇻🇳</a></td><td class="dates">14 – 24 Oct <span class="nights">10 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-2">Bali · Leg 2 🇮🇩</a></td><td class="dates">24 Oct – 18 Dec <span class="nights">55 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr><td class="place"><a href="#loc-australia">Australia 🇦🇺</a></td><td class="dates">19 Dec – 4 Jan <span class="nights">16 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr><td class="place"><a href="#loc-nz">New Zealand 🇳🇿</a></td><td class="dates">4 – 23 Jan <span class="nights">19 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-3">Bali · Leg 3 🇮🇩</a></td><td class="dates">23 Jan – 6 Mar <span class="nights">42 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr><td class="place"><a href="#loc-philippines">Philippines 🇵🇭</a></td><td class="dates">6 – 14 Mar <span class="nights">8 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-4">Bali · Leg 4 🇮🇩</a></td><td class="dates">14 Mar – 11 Apr <span class="nights">28 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="tbd"><td class="place"><a href="#loc-tbd-apr">Somewhere TBD</a></td><td class="dates">11 – 18 Apr <span class="nights">7 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-5">Bali · Leg 5 🇮🇩</a></td><td class="dates">18 Apr – 30 Jun <span class="nights">73 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr><td class="place"><a href="#loc-mexico">Mexico 🇲🇽</a></td><td class="dates">from 1 Jul</td><td class="hotel dash">—</td></tr>
+      </table>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- DEPARTURE -->
+<section id="departure">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">01 / Departure</div>
+        <h2>Berlin lifts off</h2>
+      </div>
+      <div class="sec-tag">Malaysia Airlines op. by Turkish Airlines</div>
+    </div>
+
+    <div class="pass">
+      <div class="pass-seg">
+        <div class="code">BER</div>
+        <div class="city">Berlin Brandenburg · T1</div>
+        <div class="time">10:40</div>
+        <div class="date">Tue 14 Jul 2026</div>
+      </div>
+      <div class="pass-seg">
+        <div class="code">KUL</div>
+        <div class="city">Kuala Lumpur Intl · T1</div>
+        <div class="time">08:10 <span style="color:var(--coral); font-size:13px;">+1</span></div>
+        <div class="date">Wed 15 Jul 2026</div>
+      </div>
+      <div class="pass-stub">
+        <div class="row"><span class="k">Flights</span><span class="v">MH4306 / MH4268</span></div>
+        <div class="row"><span class="k">Transit</span><span class="v">IST · 2h 10m</span></div>
+        <div class="row"><span class="k">Total time</span><span class="v">~21h 30m</span></div>
+        <div class="row"><span class="k">Cabin</span><span class="v">Economy · 4 pax</span></div>
+      </div>
+      <div class="pass-note">
+        <span>Online check-in opens 12 Jul</span>
+        <span>Each pax: cabin bag + 30kg hold</span>
+      </div>
+    </div>
+
+    <div class="layover"><span class="dot"></span><span class="track"></span>3h Berlin → Istanbul<span class="track"></span><span class="dot"></span><span class="track"></span>10h 20m Istanbul → Kuala Lumpur<span class="track"></span><span class="dot"></span></div>
+
+    <div class="pax-row">
+      <div class="pax"><span class="dot2"></span>Vasilii Pablo Penny</div>
+      <div class="pax"><span class="dot2"></span>Nora Nording</div>
+      <div class="pax"><span class="dot2"></span>Noam Nording</div>
+      <div class="pax"><span class="dot2"></span>Lyan Nording</div>
+    </div>
+
+    <div class="diary-photo" style="margin-top:28px; max-width:520px;">
+      <img src="images/berlin-departure.jpg" alt="The family with luggage on a Berlin street, about to leave for the airport">
+      <div class="cap">Last photo on home turf — suitcase packed, twelve months ahead.</div>
+    </div>
+
+    <div class="callout">
+      <b>Berlin</b>
+      <span>The Kantstraße 141 flat is sublet 15 Jul 2026 – 14 Jul 2027 to Erik Bernard &amp; Aurélie Deveille under §575 BGB.</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- MALAYSIA -->
+<section id="malaysia">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">02 / 15 Jul – 1 Aug 2026</div>
+        <h2>Malaysia, by road</h2>
+      </div>
+      <div class="sec-tag">KL → Cameron Highlands → Ipoh → Penang → Janda Baik → Kuala Rompin → Pulau Besar → JB → Singapore</div>
+    </div>
+
+    <div class="route">
+      <div class="stop"><div class="pt"></div><div class="name">Kuala Lumpur</div><div class="tag">15–18 Jul · arrival</div></div>
+      <div class="seg-line"></div>
+      <div class="stop"><div class="pt"></div><div class="name">Cameron Highlands</div><div class="tag">en route, 18 Jul</div></div>
+      <div class="seg-line"></div>
+      <div class="stop"><div class="pt"></div><div class="name">Ipoh</div><div class="tag">18–19 Jul</div></div>
+      <div class="seg-line"></div>
+      <div class="stop"><div class="pt"></div><div class="name">Penang</div><div class="tag">19–24 Jul · George Town</div></div>
+      <div class="seg-line"></div>
+      <div class="stop"><div class="pt"></div><div class="name">Janda Baik</div><div class="tag">24–25 Jul · Sailor's Rest</div></div>
+      <div class="seg-line"></div>
+      <div class="stop"><div class="pt"></div><div class="name">Kuala Rompin</div><div class="tag">25–26 Jul</div></div>
+      <div class="seg-line"></div>
+      <div class="stop"><div class="pt"></div><div class="name">Pulau Besar</div><div class="tag">26–29 Jul · Aseania Resort</div></div>
+      <div class="seg-line"></div>
+      <div class="stop"><div class="pt"></div><div class="name">JB Sentral</div><div class="tag">29 Jul · car returned</div></div>
+      <div class="seg-line"></div>
+      <div class="stop"><div class="pt"></div><div class="name">Singapore</div><div class="tag">29 Jul – 1 Aug</div></div>
+    </div>
+
+    <div class="grid3" style="margin-top:20px; grid-template-columns:1fr 1fr 1fr;">
+      <div class="info-card">
+        <h3 id="loc-kl"><span class="ic"></span>Kuala Lumpur</h3>
+        <p>"Amazing Infinity Pool Studio Twin Bedroom," Jalan Sultan Ismail. 15–18 Jul.</p>
+        <div class="fact">15–18 Jul</div>
+        <div class="addr">1020, Jalan Sultan Ismail, Kampung Baru, 50250 Kuala Lumpur<br><a href="https://www.google.com/maps/search/?api=1&query=3.158515,101.704491" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      </div>
+      <div class="info-card">
+        <h3 id="loc-ipoh"><span class="ic"></span>Ipoh</h3>
+        <p>One night at Weil Hotel Ipoh, booked via Trip.com. Free cancellation until 15 Jul, 23:59 local.</p>
+        <div class="fact">18–19 Jul</div>
+        <div class="addr">292, Jalan Sultan Idris Shah, 30000 Ipoh, Perak<br><a href="https://www.google.com/maps/search/?api=1&query=292+Jalan+Sultan+Idris+Shah+30000+Ipoh+Perak+Malaysia" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      </div>
+      <div class="info-card">
+        <h3 id="loc-penang"><span class="ic"></span>Penang</h3>
+        <p>"22 Macalisterz 2BR," George Town — a 2-bedroom entire home, hosted by Suki.</p>
+        <div class="fact">19–24 Jul</div>
+        <div class="addr">22 Jalan Macalister, 10400 George Town, Penang<br><a href="https://www.google.com/maps/search/?api=1&query=22+Jalan+Macalister+10400+George+Town+Penang+Malaysia" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:16px; grid-template-columns:1fr 1fr;">
+      <div class="info-card">
+        <h3 id="loc-jandabaik"><span class="ic"></span>Janda Baik</h3>
+        <p>Sailor's Rest — a tent stay, breakfast included. Check-in 2–5pm; let them know if arriving late.</p>
+        <div class="fact">24–25 Jul</div>
+        <div class="addr">Lorong Dato' Panglima, Kuala Lurah, 28750 Kampung Janda Baik<br><a href="https://www.google.com/maps/search/?api=1&query=Sailor%27s+Rest+Lorong+Dato+Panglima+Kuala+Lurah+28750+Kampung+Janda+Baik+Malaysia" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      </div>
+      <div class="info-card">
+        <h3 id="loc-rompin"><span class="ic"></span>Kuala Rompin</h3>
+        <p>Rompin Beach Resorts — Triple Room, breakfast available for MYR 15/person/night. Cash only, no cards accepted on site.</p>
+        <div class="fact">25–26 Jul</div>
+        <div class="addr">Lot 340, Jalan Pantai Hiburan, 26800 Kuala Rompin<br><a href="https://www.google.com/maps/search/?api=1&query=Rompin+Beach+Resorts+Lot+340+Jalan+Pantai+Hiburan+26800+Kuala+Rompin+Malaysia" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:16px;">
+      <div class="info-card">
+        <h3><span class="ic"></span>Car rental</h3>
+        <p>Perodua Bezza, automatic, via Wahdah. KL Sentral pickup → JB Sentral drop-off, Nora as additional driver.</p>
+        <div class="fact">18–29 Jul</div>
+      </div>
+      <div class="info-card">
+        <h3><span class="ic"></span>Good to know</h3>
+        <p>International driving licence required, left-hand traffic. Malaysian rental car can't cross into Singapore — return it in JB, walk or bus the Causeway.</p>
+      </div>
+      <div class="info-card">
+        <h3 id="loc-island"><span class="ic"></span>Pulau Besar</h3>
+        <p>Aseania Resort Pulau Besar — Country Chalet, 4D3N Full Board package, reached by boat transfer from Mersing Jetty. Booking confirmed, payment due 16 Jul.</p>
+        <div class="fact">26–29 Jul · RM 2,315 for 2 adults + 2 children</div>
+        <div class="addr">Lot 35, Pulau Besar, 86800 Mersing, Johor<br><a href="https://www.google.com/maps/search/?api=1&query=Aseania+Resort+Pulau+Besar+Lot+35+Pulau+Besar+86800+Mersing+Johor" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      </div>
+    </div>
+
+    <div class="grid3" style="margin-top:16px; grid-template-columns:1fr;">
+      <div class="info-card">
+        <h3 id="loc-singapore"><span class="ic"></span>Singapore, before Bali</h3>
+        <p>Furama City Centre — Superior Twin room, 3 nights, booked direct after the JB car drop-off on 29 July, through to the 1 August flight to Bali.</p>
+        <div class="fact">29 Jul – 1 Aug</div>
+        <div class="addr">60 Eu Tong Sen Street, Singapore 059804<br><a href="https://www.google.com/maps/search/?api=1&query=1.286572,103.84449" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:56px; margin-bottom:8px;">
+      <div>
+        <div class="sec-num">As it happened</div>
+        <h2 style="font-size:26px;">Kuala Lumpur, in the moment</h2>
+      </div>
+    </div>
+    <p style="color:var(--ink-soft); font-size:14.5px; max-width:62ch; margin-bottom:8px;">A few scenes from the first stop, before the road trip properly began.</p>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/kuala-lumpur-petronas-pool.jpg" alt="Family in the hotel infinity pool with the Petronas Towers behind them">
+        <div class="cap">The view that made the whole KL stay — Petronas Towers from the rooftop pool.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Day 1–2</span>
+        <h4>An infinity pool with the Petronas Towers in reach</h4>
+        <p>We swam in the hotel pool with an amazing view — the kind you don't quite believe until you're standing in it, twin towers rising right behind you.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip">
+      <div class="diary-photo">
+        <div class="diary-photo-pair">
+          <img src="images/kuala-lumpur-night-market.jpg" alt="Nora and Noam at a Kuala Lumpur night market, lanterns overhead">
+          <img src="images/kuala-lumpur-red-lanterns.jpg" alt="Family under red lanterns in a Kuala Lumpur alley, skyscraper behind">
+        </div>
+        <div class="cap">Night market lights and a lantern-strung alley in Chinatown.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Evenings</span>
+        <h4>Night markets and lantern-lit streets</h4>
+        <p>We visited a night market — food stalls, neon signs, and the city humming late into the evening. Chinatown's lantern alleys made for some of our favourite wandering.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/kuala-lumpur-hospital-lyan.jpg" alt="Lyan in a hospital bed with Nora comforting him and Noam holding his hand">
+        <div class="cap">Pantai Hospital KL — a detour nobody plans for.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Unplanned</span>
+        <h4>A hospital visit</h4>
+        <p>Lyan was sick, so we went to a hospital where they took some blood and gave some antibiotics. Not the KL we'd pictured, but everyone looked after him well — and Noam didn't leave his side.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip">
+      <div class="diary-photo">
+        <img src="images/batu-caves-family.jpg" alt="Family selfie at Batu Caves, colourful steps and golden statue behind">
+        <div class="cap">Batu Caves — moments before the monkeys got involved.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Day trip</span>
+        <h4>Batu Caves — and the monkeys</h4>
+        <p>We visited the Batu Caves, colourful steps and all, where we got thoroughly terrorized by monkeys. Worth it for the golden statue and the climb alone.</p>
+      </div>
+    </div>
+
+        </div>
+
+    <div class="sec-head" style="margin-top:56px; margin-bottom:8px;">
+      <div>
+        <div class="sec-num">→ Malaysia, continued</div>
+        <h2 style="font-size:26px;">Ipoh, in the moment</h2>
+      </div>
+    </div>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/malaysia-driving.jpg" alt="Pablo driving the rental car in Malaysia, Nora and Noam in the back seat">
+        <div class="cap">First time behind the wheel in Malaysia.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Day 3 &middot; On the road</span>
+        <h4>Me, driving in Malaysia</h4>
+        <p>Pablo took the wheel for the first time in Malaysia &mdash; a rented Perodua, left-hand traffic, and the road on toward Ipoh.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip">
+      <div class="diary-photo">
+        <img src="images/ipoh-night-lanterns.jpg" alt="Old town Ipoh at night with lanterns, Lyan asleep in Pablo's arms, Noam in a Barcelona shirt">
+        <div class="cap">Old town Ipoh &mdash; Lyan slept through the entire walk.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">In Ipoh</span>
+        <h4>A walk through old town</h4>
+        <p>Lantern-strung streets in Ipoh's old town &mdash; Lyan was out cold in Pablo's arms for the whole walk, and Noam kept pace alongside.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/ipoh-limestone-lake-boat.jpg" alt="Family in an inflatable boat on a lake near Ipoh surrounded by limestone karsts, wearing life jackets">
+        <div class="cap">Life jackets on, out on the lake.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Near Ipoh</span>
+        <h4>A boat trip on the lake</h4>
+        <p>An afternoon on a quiet lake ringed by limestone karsts just outside Ipoh, everyone squeezed into one little inflatable boat.</p>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:56px; margin-bottom:8px;">
+      <div>
+        <div class="sec-num">&rarr; Malaysia, continued</div>
+        <h2 style="font-size:26px;">Penang, in the moment</h2>
+      </div>
+    </div>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <div class="diary-photo-pair">
+          <img src="images/penang-noodles-rooftop.jpg" alt="Nora feeding Lyan noodles with chopsticks at a rooftop table">
+          <img src="images/penang-night-market.jpg" alt="Nora and the boys at the entrance to a lively night market food court">
+        </div>
+        <div class="cap">Penang eats: noodles overhead, night market after dark.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Throughout</span>
+        <h4>Eating our way through</h4>
+        <p>Penang's reputation is well earned &mdash; we ate constantly and extremely well, from noodle lunches to the night markets after dark.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip">
+      <div class="diary-photo">
+        <div class="diary-photo-pair">
+          <img src="images/george-town-street-art.jpg" alt="Noam next to a famous George Town street art mural with an old bicycle">
+          <img src="images/george-town-colonial-arcade.jpg" alt="Nora and Noam walking through a colonial arcade in George Town's UNESCO old town">
+        </div>
+        <div class="cap">George Town's UNESCO old town &mdash; street art and five-foot ways.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">UNESCO old town</span>
+        <h4>Wandering George Town</h4>
+        <p>Street art tucked into every corner and colonial arcades to wander &mdash; we loved how many cultures sit side by side here.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <div class="diary-photo-pair">
+          <img src="images/penang-hill-jungle-trail.jpg" alt="Family on a jungle trail on Penang Hill">
+          <img src="images/penang-hill-summit-selfie.jpg" alt="Family selfie at the summit of Penang Hill with the city and coast below">
+        </div>
+        <div class="cap">Up the funicular, then a hike through the jungle at the top.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Penang Hill</span>
+        <h4>Funicular and jungle</h4>
+        <p>The funicular up Penang Hill, then a hike through the jungle at the summit with the whole island spread out below.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip">
+      <div class="diary-photo">
+        <img src="images/penang-jetty-boys.jpg" alt="Noam and Lyan clowning around on a jetty over the sea, fishing boats behind">
+        <div class="cap">Exploring the island's coastline by car.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Around the island</span>
+        <h4>Mountains and beaches by car</h4>
+        <p>Days spent driving around the island, from quiet jetties over the water to the mountains inland.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/penang-postcard-postbox.jpg" alt="Noam posting a postcard at a red British-style post box in Penang">
+        <div class="cap">Postcards home, dropped in a proper red post box.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">A small errand</span>
+        <h4>Posting postcards home</h4>
+        <p>A stop to post postcards home &mdash; Noam handling the whole operation himself, gap-toothed grin included.</p>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:56px; margin-bottom:8px;">
+      <div>
+        <div class="sec-num">→ Into the mountains</div>
+        <h2 style="font-size:26px;">Janda Baik, in the moment</h2>
+      </div>
+    </div>
+    <p style="color:var(--ink-soft); font-size:14.5px; max-width:62ch; margin-bottom:8px;">Coming from Penang by car, we wound through the mountains for a night by the river.</p>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/janda-baik-1.jpeg" alt="Noam standing by the rental car at the Janda Baik campsite">
+        <div class="cap">Windy mountain roads from Penang, then a stop at the campsite.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">The drive in</span>
+        <h4>Windy roads through the rainforest mountains</h4>
+        <p>The drive from Penang took us through windy, mountainous roads into the rainforest around Janda Baik. We had the whole campsite to ourselves for the night.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip">
+      <div class="diary-photo">
+        <img src="images/janda-baik-2.jpeg" alt="Nora, Pablo, Noam and Lyan sitting together on a wooden platform at the campsite">
+        <div class="cap">Settling in on the platform, drinks in hand.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Camp hosts</span>
+        <h4>Nasi lemak and bagels</h4>
+        <p>The hosts looked after us well — nasi lemak (coconut rice) waiting for us, and bagels for breakfast the next morning.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/janda-baik-3.jpeg" alt="Noam and Lyan standing in front of the canvas bell tent, Canopy 1, under a clear plastic canopy">
+        <div class="cap">Canopy 1 — a bell tent by the river, just for us.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">The night</span>
+        <h4>A tent by the river</h4>
+        <p>The boys loved sleeping in the tent, tucked under the rain canopy with the rainforest all around. A proper adventure night in the mountains.</p>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:56px; margin-bottom:8px;">
+      <div>
+        <div class="sec-num">→ Down to the coast</div>
+        <h2 style="font-size:26px;">Kuala Rompin, in the moment</h2>
+      </div>
+    </div>
+    <p style="color:var(--ink-soft); font-size:14.5px; max-width:62ch; margin-bottom:8px;">From the mountains to the beach at Rompin Beach Resorts, through the wildest storm of the drive so far.</p>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/kuala-rompin-1.jpeg" alt="Pablo swimming with Lyan in the hotel pool at Kuala Rompin, Noam nearby wearing goggles">
+        <div class="cap">Swimming lessons at the resort pool.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">The drive down</span>
+        <h4>The strongest storm we've driven through</h4>
+        <p>We drove from the mountains to the beach at Kuala Rompin through the strongest rain and thunderstorm we've ever experienced behind the wheel. We made it safely, and went straight for swimming lessons at the resort pool.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip">
+      <div class="diary-photo">
+        <img src="images/kuala-rompin-2.jpeg" alt="Nora, Noam and Lyan walking along the beach at low tide near Kuala Rompin">
+        <div class="cap">An evening walk along the beach.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">The beach</span>
+        <h4>Walking the shore</h4>
+        <p>Once the storm passed, we spent time walking the beach at low tide — long stretches of sand and the boys running ahead into the waves.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry">
+      <div class="diary-photo">
+        <img src="images/kuala-rompin-3.jpeg" alt="Noam and Lyan with a local girl, all three eating popsicles under a shelter near the beach">
+        <div class="cap">Popsicles with new friends from the beach.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">New friends</span>
+        <h4>Meeting local children</h4>
+        <p>The boys made friends with local children on the beach — popsicles all round, and not much language needed to play together.</p>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:44px; margin-bottom:22px;">
+      <div>
+        <div class="sec-num">→ On to Bali</div>
+        <h2 style="font-size:22px;">Singapore lifts off</h2>
+      </div>
+      <div class="sec-tag">TransNusa Aviation</div>
+    </div>
+
+    <div class="pass">
+      <div class="pass-seg">
+        <div class="code">SIN</div>
+        <div class="city">Singapore Changi</div>
+        <div class="time">10:55</div>
+        <div class="date">Sat 1 Aug 2026</div>
+      </div>
+      <div class="pass-seg">
+        <div class="code">DPS</div>
+        <div class="city">Ngurah Rai Intl · Kuta</div>
+        <div class="time">13:30</div>
+        <div class="date">Sat 1 Aug 2026</div>
+      </div>
+      <div class="pass-stub">
+        <div class="row"><span class="k">Flight</span><span class="v">8B552</span></div>
+        <div class="row"><span class="k">Duration</span><span class="v">2h 35m · direct</span></div>
+        <div class="row"><span class="k">Cabin</span><span class="v">Economy · 4 pax</span></div>
+      </div>
+      <div class="pass-note">
+        <span>1 cabin bag + 1 checked bag (20kg) per pax</span>
+        <span>Seats assigned at check-in</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- BALI -->
+<section id="bali">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">03 / Home base</div>
+        <h2>Bali, in five stretches</h2>
+      </div>
+      <div class="sec-tag">Wood School Bali · Pejeng / Ubud · ~273 days total</div>
+    </div>
+
+    <div class="legstrip">
+      <div class="leg" id="leg-1"><div class="n">Leg 1</div><div class="d">1 Aug – 10 Oct 2026</div><div class="len">71 days</div></div>
+      <div class="leg" id="leg-2"><div class="n">Leg 2</div><div class="d">24 Oct – 18 Dec 2026</div><div class="len">56 days</div></div>
+      <div class="leg" id="leg-3"><div class="n">Leg 3</div><div class="d">23 Jan – 6 Mar 2027</div><div class="len">43 days</div></div>
+      <div class="leg" id="leg-4"><div class="n">Leg 4</div><div class="d">14 Mar – 11 Apr 2027</div><div class="len">29 days</div></div>
+      <div class="leg" id="leg-5"><div class="n">Leg 5</div><div class="d">18 Apr – 30 Jun 2027</div><div class="len">74 days</div></div>
+    </div>
+
+    <div class="grid3" style="margin-top:26px;">
+      <div class="info-card">
+        <h3><span class="ic"></span>First villa</h3>
+        <p>Sairam House, Bedulu, Ubud — 2BR jungle villa with pool, 1–15 Aug. Pool has no gate or lock, so eyes on always.</p>
+        <div class="fact">1–15 Aug</div>
+        <div class="addr">Bedulu, Blahbatuh, Ubud, Bali 80581<br><a href="https://www.google.com/maps/search/?api=1&query=-8.527339,115.293843" target="_blank" rel="noopener">Open in Google Maps →</a></div>
+      </div>
+      <div class="info-card">
+        <h3><span class="ic"></span>Wood School Bali</h3>
+        <p>Both children enrolled Aug–Dec: Noam in Primary, Lyan in Early Years. Small mixed-age classes, restorative practices, nature-based, movement-first.</p>
+        <div class="fact">Transparency with school recommended before Aug</div>
+      </div>
+      <div class="info-card">
+        <h3><span class="ic"></span>Visa</h3>
+        <p>D1 multiple-entry tourist visa (1-year) via Bali Visas, priority processing. Two legs exceed 60 days and each needs one in-country extension.</p>
+        <div class="fact">All 4 passports: 18+ months validity from 1 Aug entry</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <b>Health</b>
+      <span>BIMC Ubud is the closest 24/7 emergency clinic to the villa — Jalan Raya Sanggingan No. 21, Kedewatan, about 10 minutes away; call +62 361 209 1030 or WhatsApp +62 811-399-552. For anything serious, BIMC Kuta is the network's largest facility with an ICU, roughly 1.5 hours by car; Kasih Ibu is a nearer alternative for non-emergency consultations. Check with Allianz before any inpatient admission, since the policy requires prior authorization for that.</span>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- BEYOND -->
+<section id="beyond">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">04 / Between legs</div>
+        <h2>What fills the gaps</h2>
+      </div>
+      <div class="sec-tag">Oct 2026 – Jun 2027</div>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item active">
+        <div class="tl-dot">•</div>
+        <div class="tl-card" style="padding:0; overflow:hidden; background:transparent; border:none;">
+          <div class="tl-top" id="loc-hongkong" style="padding:20px 22px 0;"><div class="tl-title">Bali → Hong Kong</div><div class="tl-dates">10 Oct 2026</div></div>
+          <div class="tl-desc" style="padding:0 22px 20px;">Singapore Airlines via Trip.com, one stop in Singapore with no bag re-check. Coincides with Wood School's Term 1 break. Lantau Island (Tung Chung) as a practical, airport-adjacent base — Ngong Ping cable car and the Big Buddha in easy reach.</div>
+
+          <div class="pass" style="border-radius:0;">
+            <div class="pass-seg">
+              <div class="code">DPS</div>
+              <div class="city">Ngurah Rai Intl · Bali</div>
+              <div class="time">13:15</div>
+              <div class="date">Sat 10 Oct 2026</div>
+            </div>
+            <div class="pass-seg">
+              <div class="code">HKG</div>
+              <div class="city">Hong Kong Intl · T1</div>
+              <div class="time">23:00</div>
+              <div class="date">Sat 10 Oct 2026</div>
+            </div>
+            <div class="pass-stub">
+              <div class="row"><span class="k">Flights</span><span class="v">SQ939 / SQ898</span></div>
+              <div class="row"><span class="k">Transit</span><span class="v">SIN · 3h</span></div>
+              <div class="row"><span class="k">Aircraft</span><span class="v">787 / A350</span></div>
+              <div class="row"><span class="k">Cabin</span><span class="v">Economy · 4 pax</span></div>
+            </div>
+            <div class="pass-note">
+              <span>No bag re-check in Singapore</span>
+              <span>Seats confirmed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">•</div>
+        <div class="tl-card">
+          <div class="tl-top" id="loc-vietnam"><div class="tl-title">China &amp; Vietnam</div><div class="tl-dates">from 14 Oct 2026</div></div>
+          <div class="tl-desc">On from Hong Kong from 14 October, ahead of the 24 October return to Bali for Leg 2. Hanoi-first sequencing recommended for the Vietnam stretch, with Hạ Long Bay alongside it. Hội An stays off the list this trip — October brings flooding.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">•</div>
+        <div class="tl-card">
+          <div class="tl-top" id="loc-australia"><div class="tl-title">Australia</div><div class="tl-dates">19 Dec 2026 – 4 Jan 2027</div></div>
+          <div class="tl-desc">Straight from Bali once Leg 2 finishes on 18 December — Christmas and New Year in Australia. Straightforward entry for the whole family. Car seat: skip it through Southeast Asia, buy an Australian-certified seat locally (~AUD 80–100 at Big W) — the same seat covers New Zealand too, since ECE-44 isn't required there.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">•</div>
+        <div class="tl-card">
+          <div class="tl-top" id="loc-nz"><div class="tl-title">New Zealand — Nelson</div><div class="tl-dates">4 – 23 Jan 2027</div></div>
+          <div class="tl-desc">A tighter window now, about three weeks rather than the two-plus months originally floated — worth revisiting whether the Nelson Central School enrolment and a Trade Me Motors car purchase still make sense at this length, or whether those plans were built around the longer stay.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">•</div>
+        <div class="tl-card">
+          <div class="tl-top" id="loc-philippines"><div class="tl-title">Philippines — El Nido &amp; Coron</div><div class="tl-dates">6 – 14 Mar 2027</div></div>
+          <div class="tl-desc">Now sitting after Leg 3, between Bali stretches, rather than over December. Palawan still falls in a good dry-season weather window at this time of year.</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">•</div>
+        <div class="tl-card">
+          <div class="tl-top" id="loc-tbd-apr"><div class="tl-title">Somewhere TBD</div><div class="tl-dates">11 – 18 Apr 2027</div></div>
+          <div class="tl-desc">A week between Leg 4 and Leg 5 with no destination decided yet — noted on the planning sheet as "fly somewhere else?"</div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">•</div>
+        <div class="tl-card">
+          <div class="tl-top" id="loc-mexico"><div class="tl-title">On to Mexico</div><div class="tl-dates">from 1 Jul 2027</div></div>
+          <div class="tl-desc">The current close to Leg 5 and the trip's final routing — details still to be worked out.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<!-- ESSENTIALS -->
+<section id="essentials">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">05 / Keep close</div>
+        <h2>The paperwork that matters</h2>
+      </div>
+    </div>
+
+    <div class="grid3">
+      <div class="info-card">
+        <h3><span class="ic"></span>Travel insurance</h3>
+        <p>Allianz travel health, all four covered worldwide excl. USA/Canada, 15 Jul 2026 – 14 Jul 2027. Reimbursement model — pay upfront, except inpatient care, which needs prior Allianz contact.</p>
+        <div class="fact">Policy ALZDEA600097304 · Emergency +49 89 24 44 14 200</div>
+      </div>
+      <div class="info-card">
+        <h3><span class="ic"></span>Visa — issued</h3>
+        <p>D1 multiple-entry e-visas for all four came through from Bali Visas. The 12-month multiple-entry window starts from today's issuance date, not from arrival — worth factoring into the later legs.</p>
+        <div class="fact">Issued 2 Jul 2026 · Pablo, Nora, Noam &amp; Lyan · sponsor letters attached</div>
+      </div>
+      <div class="info-card">
+        <h3><span class="ic"></span>Berlin sublet</h3>
+        <p>Untermietvertrag, Übergabeprotokoll, Wohnungsgeberbestätigung and power of attorney all completed. Landlord contact: G. Koleva, Boskamp Group.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:22px;">
+      <b>Passports</b>
+      <span>All four need at least 18 months' validity from the 1 August 2026 Bali entry — worth a final check before departure alongside the D1 visa approval from Bali Visas.</span>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">06 / The shape of it</div>
+        <h2>A year across two hemispheres</h2>
+      </div>
+      <div class="sec-tag">Bali as home base, everything else radiating out</div>
+    </div>
+
+    <div class="map-wrap">
+      <svg viewBox="0 0 1000 640" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="1000" height="640" fill="var(--paper-dim)" />
+
+        <!-- landmasses (stylised, not to scale) -->
+        <g fill="var(--teal)" opacity="0.16">
+          <path d="M480,120 C500,58 585,48 622,80 C662,112 652,162 630,192 C608,232 558,252 518,230 C478,208 458,168 480,120 Z"/>
+          <path d="M498,300 C520,288 542,300 546,332 C551,372 561,402 555,432 C549,462 528,472 513,452 C498,432 493,400 488,370 C483,340 478,312 498,300 Z"/>
+          <path d="M538,456 C570,449 622,454 652,465 C663,469 663,479 652,483 C610,491 558,487 533,478 C523,474 526,461 538,456 Z"/>
+          <path d="M600,342 C642,320 692,332 712,367 C727,397 710,432 674,442 C638,452 604,436 594,401 C587,376 585,357 600,342 Z"/>
+          <path d="M660,238 C671,228 686,234 686,250 C686,271 675,292 664,302 C654,291 649,270 654,255 C656,248 657,242 660,238 Z"/>
+          <path d="M630,268 C636,258 646,261 649,275 C653,296 649,321 640,336 C632,326 624,300 625,285 C625,278 627,272 630,268 Z"/>
+          <path d="M700,480 C762,459 852,464 902,500 C942,530 946,581 910,611 C870,642 780,647 730,616 C690,591 680,540 690,510 C693,500 696,489 700,480 Z"/>
+          <path d="M930,558 C946,553 957,564 954,580 C951,601 938,617 924,611 C914,606 914,590 919,575 C922,568 925,561 930,558 Z"/>
+          <path d="M899,610 C915,604 926,615 921,631 C915,650 897,662 884,653 C874,646 877,628 884,618 C889,613 894,610 899,610 Z"/>
+        </g>
+
+        <!-- overland Malaysia -> Bali route -->
+        <path d="M515,335 L525,410 L538,435 L602,468" fill="none" stroke="var(--teal)" stroke-width="2" stroke-dasharray="1 0"/>
+
+        <!-- spokes from Bali home base -->
+        <g fill="none" stroke="var(--coral)" stroke-width="1.6" stroke-dasharray="5 5" opacity="0.85">
+          <path d="M602,468 L600,95"/>
+          <path d="M602,468 L550,165"/>
+          <path d="M602,468 L632,285"/>
+          <path d="M602,468 L800,550"/>
+          <path d="M602,468 L895,625"/>
+        </g>
+
+        <!-- entry line from Berlin, off-frame -->
+        <path d="M400,240 L480,300 L515,335" fill="none" stroke="var(--sky)" stroke-width="1.6" stroke-dasharray="4 5" opacity="0.75"/>
+        <text x="358" y="236" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="12" fill="var(--sky)">from Berlin</text>
+
+        <!-- city dots -->
+        <g font-family="IBM Plex Mono, monospace" font-size="12.5" fill="var(--ink)">
+          <circle cx="515" cy="335" r="5" fill="var(--teal)"/>
+          <text x="524" y="332">Kuala Lumpur</text>
+
+          <circle cx="525" cy="410" r="4.5" fill="var(--teal)"/>
+          <text x="534" y="407">Mersing &amp; JB</text>
+
+          <circle cx="538" cy="435" r="4.5" fill="var(--teal)"/>
+          <text x="493" y="454">Singapore</text>
+
+          <circle cx="602" cy="468" r="8" fill="var(--coral)" stroke="var(--card)" stroke-width="2"/>
+          <text x="614" y="472" font-weight="700" fill="var(--coral)">Bali — home base</text>
+
+          <circle cx="600" cy="95" r="5" fill="var(--gold)"/>
+          <text x="609" y="92">Hong Kong</text>
+
+          <circle cx="550" cy="165" r="5" fill="var(--gold)"/>
+          <text x="497" y="150">Vietnam &amp; China</text>
+
+          <circle cx="632" cy="285" r="5" fill="var(--gold)"/>
+          <text x="641" y="282">Philippines</text>
+
+          <circle cx="800" cy="550" r="5" fill="var(--gold)"/>
+          <text x="768" y="535">Australia</text>
+
+          <circle cx="895" cy="625" r="5" fill="var(--gold)"/>
+          <text x="835" y="622">New Zealand — Nelson</text>
+        </g>
+      </svg>
+
+      <div class="map-legend">
+        <div class="li"><span class="sw solid"></span> overland route, Malaysia → Bali</div>
+        <div class="li"><span class="sw dash"></span> return trips from Bali</div>
+        <div class="li"><span class="dot-sw" style="background:var(--coral);"></span> home base</div>
+        <div class="li"><span class="dot-sw" style="background:var(--gold);"></span> excursion</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="divider"></div></div>
+
+<footer>
+  <div class="wrap">
+    <div class="f-brand">Berlin → Kuala Lumpur → Bali → the world → home</div>
+    <div class="f-note">A year on the road, updated as we go</div>
+  </div>
+</footer>
+
+</body>
+</html>
