@@ -105,38 +105,40 @@
 
   /* ---------- overview table ---------- */
   .overview{
-    margin-top:36px; border:1px solid var(--line); border-radius:12px;
-    overflow:hidden; background:var(--card);
+    margin-top:36px; border:1px solid var(--line); border-radius:16px;
+    overflow:hidden; background:rgba(255,255,255,0.95);
   }
   .overview-scroll{
     overflow-x:auto;
     -webkit-overflow-scrolling:touch;
-    padding:0 8px;
+    padding:0 14px;
   }
   .overview table{
-    width:auto;
-    min-width:560px;
+    width:100%;
+    min-width:640px;
     border-collapse:collapse;
   }
   .overview th{
     text-align:left; font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
     letter-spacing:0.06em; color:var(--ink-soft); font-weight:600;
-    padding:12px 18px; background:var(--paper-dim); border-bottom:1px solid var(--line);
+    padding:14px 20px; background:rgba(246,241,230,0.92); border-bottom:1px solid var(--line);
     white-space:nowrap;
   }
   .overview td{
-    padding:10px 18px; font-size:14px; border-bottom:1px solid var(--line);
+    padding:14px 20px; font-size:14px; border-bottom:1px solid var(--line);
+    transition:background .2s ease;
   }
+  .overview tr:hover td{background:rgba(15,92,85,0.04);}
   .overview tr:last-child td{border-bottom:none;}
-  .overview .place{font-family:'Fraunces', serif; font-weight:600; color:var(--ink); white-space:nowrap;}
-  .overview .place a{color:inherit; text-decoration:none; border-bottom:1px solid transparent;}
+  .overview .place{font-family:'Fraunces', serif; font-weight:600; color:var(--ink);}
+  .overview .place a{color:inherit; text-decoration:none; border-bottom:2px solid transparent; display:inline-block; padding:4px 0;}
   .overview .place a:hover{color:var(--coral); border-bottom-color:var(--coral);}
   .overview .dates{font-family:'IBM Plex Mono', monospace; color:var(--ink-soft); font-size:12.5px; white-space:nowrap;}
   .overview .nights{color:var(--gold); margin-left:8px;}
   .overview .hotel a{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal); text-decoration:none; white-space:nowrap;}
   .overview .hotel a:hover{color:var(--coral);}
   .overview .hotel.dash{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--line);}
-  .overview tr.hub td{background:rgba(15,92,85,0.06);}
+  .overview tr.hub td{background:rgba(15,92,85,0.08);}
   .overview tr.hub .place{color:var(--teal-deep);}
   .overview tr.tbd .place, .overview tr.tbd .dates{color:var(--coral); opacity:0.85;}
   @media (max-width:600px){ .overview th, .overview td{padding:9px 12px; font-size:12.5px;} }
@@ -328,7 +330,6 @@
       <a href="#malaysia">Malaysia</a>
       <a href="#bali">Bali</a>
       <a href="#beyond">Beyond</a>
-      <a href="#essentials">Essentials</a>
       <a href="#map">Map</a>
     </div>
   </div>
@@ -349,17 +350,17 @@
         <tr><td class="place"><a href="#loc-rompin">Kuala Rompin 🇲🇾</a></td><td class="dates">25 – 26 Jul <span class="nights">1 night</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=Rompin+Beach+Resorts+Lot+340+Jalan+Pantai+Hiburan+26800+Kuala+Rompin+Malaysia" target="_blank" rel="noopener">Rompin Beach Resorts ↗</a></td></tr>
         <tr><td class="place"><a href="#loc-island">Pulau Besar 🇲🇾</a></td><td class="dates">26 – 29 Jul <span class="nights">3 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=Aseania+Resort+Pulau+Besar+Lot+35+Pulau+Besar+86800+Mersing+Johor" target="_blank" rel="noopener">Aseania Resort ↗</a></td></tr>
         <tr><td class="place"><a href="#loc-singapore">Singapore 🇸🇬</a></td><td class="dates">29 Jul – 1 Aug <span class="nights">3 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=1.286572,103.84449" target="_blank" rel="noopener">Furama City Centre ↗</a></td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-1">Bali 1 🇮🇩</a></td><td class="dates">1 Aug – 10 Oct <span class="nights">70 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=-8.527339,115.293843" target="_blank" rel="noopener">Sairam House ↗</a></td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-1">Bali 🇮🇩</a></td><td class="dates">1 Aug – 10 Oct <span class="nights">70 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=-8.527339,115.293843" target="_blank" rel="noopener">Sairam House ↗</a></td></tr>
         <tr><td class="place"><a href="#loc-hongkong">Hong Kong 🇭🇰</a></td><td class="dates">10 – 14 Oct <span class="nights">4 nights</span></td><td class="hotel dash">—</td></tr>
         <tr><td class="place"><a href="#loc-vietnam">China &amp; Vietnam 🇨🇳🇻🇳</a></td><td class="dates">14 – 24 Oct <span class="nights">10 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-2">Bali 2 🇮🇩</a></td><td class="dates">24 Oct – 18 Dec <span class="nights">55 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-2">Bali 🇮🇩</a></td><td class="dates">24 Oct – 18 Dec <span class="nights">55 nights</span></td><td class="hotel dash">—</td></tr>
         <tr><td class="place"><a href="#loc-australia">Australia 🇦🇺</a></td><td class="dates">19 Dec – 4 Jan <span class="nights">16 nights</span></td><td class="hotel dash">—</td></tr>
         <tr><td class="place"><a href="#loc-nz">New Zealand 🇳🇿</a></td><td class="dates">4 – 23 Jan <span class="nights">19 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-3">Bali 3 🇮🇩</a></td><td class="dates">23 Jan – 6 Mar <span class="nights">42 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-3">Bali 🇮🇩</a></td><td class="dates">23 Jan – 6 Mar <span class="nights">42 nights</span></td><td class="hotel dash">—</td></tr>
         <tr><td class="place"><a href="#loc-philippines">Philippines 🇵🇭</a></td><td class="dates">6 – 14 Mar <span class="nights">8 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-4">Bali 4 🇮🇩</a></td><td class="dates">14 Mar – 11 Apr <span class="nights">28 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-4">Bali 🇮🇩</a></td><td class="dates">14 Mar – 11 Apr <span class="nights">28 nights</span></td><td class="hotel dash">—</td></tr>
         <tr class="tbd"><td class="place"><a href="#loc-tbd-apr">Somewhere TBD</a></td><td class="dates">11 – 18 Apr <span class="nights">7 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-5">Bali 5 🇮🇩</a></td><td class="dates">18 Apr – 30 Jun <span class="nights">73 nights</span></td><td class="hotel dash">—</td></tr>
+        <tr class="hub"><td class="place"><a href="#leg-5">Bali 🇮🇩</a></td><td class="dates">18 Apr – 30 Jun <span class="nights">73 nights</span></td><td class="hotel dash">—</td></tr>
         <tr><td class="place"><a href="#loc-mexico">Mexico 🇲🇽</a></td><td class="dates">from 1 Jul</td><td class="hotel dash">—</td></tr>
       </table>
       </div>
@@ -372,10 +373,9 @@
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-num">01 / Departure</div>
+        <div class="sec-num">Departure</div>
         <h2>Berlin lifts off</h2>
       </div>
-      <div class="sec-tag">Malaysia Airlines op. by Turkish Airlines</div>
     </div>
 
     <div class="pass">
@@ -403,8 +403,6 @@
       </div>
     </div>
 
-    <div class="layover"><span class="dot"></span><span class="track"></span>3h Berlin → Istanbul<span class="track"></span><span class="dot"></span><span class="track"></span>10h 20m Istanbul → Kuala Lumpur<span class="track"></span><span class="dot"></span></div>
-
     <div class="pax-row">
       <div class="pax"><span class="dot2"></span>Pablo Penny</div>
       <div class="pax"><span class="dot2"></span>Nora Nording</div>
@@ -415,11 +413,6 @@
     <div class="diary-photo" style="margin-top:28px; max-width:520px;">
       <img src="images/berlin-departure.jpg" alt="The family with luggage on a Berlin street, about to leave for the airport">
       <div class="cap">Last photo on home turf — suitcase packed, twelve months ahead.</div>
-    </div>
-
-    <div class="callout">
-      <b>Berlin</b>
-      <span>The Kantstraße 141 flat is sublet 15 Jul 2026 – 14 Jul 2027 to Erik Bernard &amp; Aurélie Deveille under §575 BGB.</span>
     </div>
   </div>
 </section>
@@ -455,69 +448,6 @@
       <div class="stop"><div class="pt"></div><div class="name">JB Sentral</div><div class="tag">29 Jul · car returned</div></div>
       <div class="seg-line"></div>
       <div class="stop"><div class="pt"></div><div class="name">Singapore</div><div class="tag">29 Jul – 1 Aug</div></div>
-    </div>
-
-    <div class="grid3" style="margin-top:20px; grid-template-columns:1fr 1fr 1fr;">
-      <div class="info-card">
-        <h3 id="loc-kl"><span class="ic"></span>Kuala Lumpur</h3>
-        <p>"Amazing Infinity Pool Studio Twin Bedroom," Jalan Sultan Ismail. 15–18 Jul.</p>
-        <div class="fact">15–18 Jul</div>
-        <div class="addr">1020, Jalan Sultan Ismail, Kampung Baru, 50250 Kuala Lumpur<br><a href="https://www.google.com/maps/search/?api=1&query=3.158515,101.704491" target="_blank" rel="noopener">Open in Google Maps →</a></div>
-      </div>
-      <div class="info-card">
-        <h3 id="loc-ipoh"><span class="ic"></span>Ipoh</h3>
-        <p>One night at Weil Hotel Ipoh, booked via Trip.com. Free cancellation until 15 Jul, 23:59 local.</p>
-        <div class="fact">18–19 Jul</div>
-        <div class="addr">292, Jalan Sultan Idris Shah, 30000 Ipoh, Perak<br><a href="https://www.google.com/maps/search/?api=1&query=292+Jalan+Sultan+Idris+Shah+30000+Ipoh+Perak+Malaysia" target="_blank" rel="noopener">Open in Google Maps →</a></div>
-      </div>
-      <div class="info-card">
-        <h3 id="loc-penang"><span class="ic"></span>Penang</h3>
-        <p>"22 Macalisterz 2BR," George Town — a 2-bedroom entire home, hosted by Suki.</p>
-        <div class="fact">19–24 Jul</div>
-        <div class="addr">22 Jalan Macalister, 10400 George Town, Penang<br><a href="https://www.google.com/maps/search/?api=1&query=22+Jalan+Macalister+10400+George+Town+Penang+Malaysia" target="_blank" rel="noopener">Open in Google Maps →</a></div>
-      </div>
-    </div>
-
-    <div class="grid3" style="margin-top:16px; grid-template-columns:1fr 1fr;">
-      <div class="info-card">
-        <h3 id="loc-jandabaik"><span class="ic"></span>Janda Baik</h3>
-        <p>Sailor's Rest — a tent stay, breakfast included. Check-in 2–5pm; let them know if arriving late.</p>
-        <div class="fact">24–25 Jul</div>
-        <div class="addr">Lorong Dato' Panglima, Kuala Lurah, 28750 Kampung Janda Baik<br><a href="https://www.google.com/maps/search/?api=1&query=Sailor%27s+Rest+Lorong+Dato+Panglima+Kuala+Lurah+28750+Kampung+Janda+Baik+Malaysia" target="_blank" rel="noopener">Open in Google Maps →</a></div>
-      </div>
-      <div class="info-card">
-        <h3 id="loc-rompin"><span class="ic"></span>Kuala Rompin</h3>
-        <p>Rompin Beach Resorts — Triple Room, breakfast available for MYR 15/person/night. Cash only, no cards accepted on site.</p>
-        <div class="fact">25–26 Jul</div>
-        <div class="addr">Lot 340, Jalan Pantai Hiburan, 26800 Kuala Rompin<br><a href="https://www.google.com/maps/search/?api=1&query=Rompin+Beach+Resorts+Lot+340+Jalan+Pantai+Hiburan+26800+Kuala+Rompin+Malaysia" target="_blank" rel="noopener">Open in Google Maps →</a></div>
-      </div>
-    </div>
-
-    <div class="grid3" style="margin-top:16px;">
-      <div class="info-card">
-        <h3><span class="ic"></span>Car rental</h3>
-        <p>Perodua Bezza, automatic, via Wahdah. KL Sentral pickup → JB Sentral drop-off, Nora as additional driver.</p>
-        <div class="fact">18–29 Jul</div>
-      </div>
-      <div class="info-card">
-        <h3><span class="ic"></span>Good to know</h3>
-        <p>International driving licence required, left-hand traffic. Malaysian rental car can't cross into Singapore — return it in JB, walk or bus the Causeway.</p>
-      </div>
-      <div class="info-card">
-        <h3 id="loc-island"><span class="ic"></span>Pulau Besar</h3>
-        <p>Aseania Resort Pulau Besar — Country Chalet, 4D3N Full Board package, reached by boat transfer from Mersing Jetty. Booking confirmed, payment due 16 Jul.</p>
-        <div class="fact">26–29 Jul · RM 2,315 for 2 adults + 2 children</div>
-        <div class="addr">Lot 35, Pulau Besar, 86800 Mersing, Johor<br><a href="https://www.google.com/maps/search/?api=1&query=Aseania+Resort+Pulau+Besar+Lot+35+Pulau+Besar+86800+Mersing+Johor" target="_blank" rel="noopener">Open in Google Maps →</a></div>
-      </div>
-    </div>
-
-    <div class="grid3" style="margin-top:16px; grid-template-columns:1fr;">
-      <div class="info-card">
-        <h3 id="loc-singapore"><span class="ic"></span>Singapore, before Bali</h3>
-        <p>Furama City Centre — Superior Twin room, 3 nights, booked direct after the JB car drop-off on 29 July, through to the 1 August flight to Bali.</p>
-        <div class="fact">29 Jul – 1 Aug</div>
-        <div class="addr">60 Eu Tong Sen Street, Singapore 059804<br><a href="https://www.google.com/maps/search/?api=1&query=1.286572,103.84449" target="_blank" rel="noopener">Open in Google Maps →</a></div>
-      </div>
     </div>
 
     <div class="sec-head" style="margin-top:56px; margin-bottom:8px;">
@@ -829,7 +759,6 @@
         <div class="sec-num">→ On to Bali</div>
         <h2 style="font-size:22px;">Singapore lifts off</h2>
       </div>
-      <div class="sec-tag">TransNusa Aviation</div>
     </div>
 
     <div class="pass">
@@ -865,42 +794,18 @@
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-num">03 / Home base</div>
+        <div class="sec-num">Home base</div>
         <h2>Bali, in five stretches</h2>
       </div>
       <div class="sec-tag">Wood School Bali · Pejeng / Ubud · ~273 days total</div>
     </div>
 
     <div class="legstrip">
-      <div class="leg" id="leg-1"><div class="n">Bali 1</div><div class="d">1 Aug – 10 Oct 2026</div><div class="len">71 days</div></div>
-      <div class="leg" id="leg-2"><div class="n">Bali 2</div><div class="d">24 Oct – 18 Dec 2026</div><div class="len">56 days</div></div>
-      <div class="leg" id="leg-3"><div class="n">Bali 3</div><div class="d">23 Jan – 6 Mar 2027</div><div class="len">43 days</div></div>
-      <div class="leg" id="leg-4"><div class="n">Bali 4</div><div class="d">14 Mar – 11 Apr 2027</div><div class="len">29 days</div></div>
-      <div class="leg" id="leg-5"><div class="n">Bali 5</div><div class="d">18 Apr – 30 Jun 2027</div><div class="len">74 days</div></div>
-    </div>
-
-    <div class="grid3" style="margin-top:26px;">
-      <div class="info-card">
-        <h3><span class="ic"></span>First villa</h3>
-        <p>Sairam House, Bedulu, Ubud — 2BR jungle villa with pool, 1–15 Aug. Pool has no gate or lock, so eyes on always.</p>
-        <div class="fact">1–15 Aug</div>
-        <div class="addr">Bedulu, Blahbatuh, Ubud, Bali 80581<br><a href="https://www.google.com/maps/search/?api=1&query=-8.527339,115.293843" target="_blank" rel="noopener">Open in Google Maps →</a></div>
-      </div>
-      <div class="info-card">
-        <h3><span class="ic"></span>Wood School Bali</h3>
-        <p>Both children enrolled Aug–Dec: Noam in Primary, Lyan in Early Years. Small mixed-age classes, restorative practices, nature-based, movement-first.</p>
-        <div class="fact">Transparency with school recommended before Aug</div>
-      </div>
-      <div class="info-card">
-        <h3><span class="ic"></span>Visa</h3>
-        <p>D1 multiple-entry tourist visa (1-year) via Bali Visas, priority processing. Two stays exceed 60 days and each needs one in-country extension.</p>
-        <div class="fact">All 4 passports: 18+ months validity from 1 Aug entry</div>
-      </div>
-    </div>
-
-    <div class="callout">
-      <b>Health</b>
-      <span>BIMC Ubud is the closest 24/7 emergency clinic to the villa — Jalan Raya Sanggingan No. 21, Kedewatan, about 10 minutes away; call +62 361 209 1030 or WhatsApp +62 811-399-552. For anything serious, BIMC Kuta is the network's largest facility with an ICU, roughly 1.5 hours by car; Kasih Ibu is a nearer alternative for non-emergency consultations. Check with Allianz before any inpatient admission, since the policy requires prior authorization for that.</span>
+      <div class="leg" id="leg-1"><div class="n">Bali</div><div class="d">1 Aug – 10 Oct 2026</div><div class="len">71 days</div></div>
+      <div class="leg" id="leg-2"><div class="n">Bali</div><div class="d">24 Oct – 18 Dec 2026</div><div class="len">56 days</div></div>
+      <div class="leg" id="leg-3"><div class="n">Bali</div><div class="d">23 Jan – 6 Mar 2027</div><div class="len">43 days</div></div>
+      <div class="leg" id="leg-4"><div class="n">Bali</div><div class="d">14 Mar – 11 Apr 2027</div><div class="len">29 days</div></div>
+      <div class="leg" id="leg-5"><div class="n">Bali</div><div class="d">18 Apr – 30 Jun 2027</div><div class="len">74 days</div></div>
     </div>
   </div>
 </section>
@@ -912,7 +817,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-num">04 / Between stays</div>
+        <div class="sec-num">Between stays</div>
         <h2>What fills the gaps</h2>
       </div>
       <div class="sec-tag">Oct 2026 – Jun 2027</div>
@@ -962,14 +867,13 @@
         <div class="tl-dot">•</div>
         <div class="tl-card">
           <div class="tl-top" id="loc-australia"><div class="tl-title">Australia</div><div class="tl-dates">19 Dec 2026 – 4 Jan 2027</div></div>
-          <div class="tl-desc">Straight from Bali once this stretch finishes on 18 December — Christmas and New Year in Australia. Straightforward entry for the whole family. Car seat: skip it through Southeast Asia, buy an Australian-certified seat locally (~AUD 80–100 at Big W) — the same seat covers New Zealand too, since ECE-44 isn't required there.</div>
         </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot">•</div>
         <div class="tl-card">
-          <div class="tl-top" id="loc-nz"><div class="tl-title">New Zealand — Nelson</div><div class="tl-dates">4 – 23 Jan 2027</div></div>
+          <div class="tl-top" id="loc-nz"><div class="tl-title">New Zealand</div><div class="tl-dates">4 – 23 Jan 2027</div></div>
         </div>
       </div>
 
@@ -1002,46 +906,12 @@
 
 <div class="wrap"><div class="divider"></div></div>
 
-<!-- ESSENTIALS -->
-<section id="essentials">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="sec-num">05 / Keep close</div>
-        <h2>The paperwork that matters</h2>
-      </div>
-    </div>
-
-    <div class="grid3">
-      <div class="info-card">
-        <h3><span class="ic"></span>Travel insurance</h3>
-        <p>Allianz travel health, all four covered worldwide excl. USA/Canada, 15 Jul 2026 – 14 Jul 2027. Reimbursement model — pay upfront, except inpatient care, which needs prior Allianz contact.</p>
-        <div class="fact">Policy ALZDEA600097304 · Emergency +49 89 24 44 14 200</div>
-      </div>
-      <div class="info-card">
-        <h3><span class="ic"></span>Visa — issued</h3>
-        <p>D1 multiple-entry e-visas for all four came through from Bali Visas. The 12-month multiple-entry window starts from today's issuance date, not from arrival — worth factoring into the later stays.</p>
-        <div class="fact">Issued 2 Jul 2026 · Pablo, Nora, Noam &amp; Lyan · sponsor letters attached</div>
-      </div>
-      <div class="info-card">
-        <h3><span class="ic"></span>Berlin sublet</h3>
-        <p>Untermietvertrag, Übergabeprotokoll, Wohnungsgeberbestätigung and power of attorney all completed. Landlord contact: G. Koleva, Boskamp Group.</p>
-      </div>
-    </div>
-
-    <div class="callout" style="margin-top:22px;">
-      <b>Passports</b>
-      <span>All four need at least 18 months' validity from the 1 August 2026 Bali entry — worth a final check before departure alongside the D1 visa approval from Bali Visas.</span>
-    </div>
-  </div>
-</section>
-
 <!-- MAP -->
 <section id="map">
   <div class="wrap">
     <div class="sec-head">
       <div>
-        <div class="sec-num">06 / The shape of it</div>
+        <div class="sec-num">The shape of it</div>
         <h2>A year across two hemispheres</h2>
       </div>
       <div class="sec-tag">Bali as home base, everything else radiating out</div>
@@ -1107,7 +977,7 @@
           <text x="768" y="535">Australia</text>
 
           <circle cx="895" cy="625" r="5" fill="var(--gold)"/>
-          <text x="835" y="622">New Zealand — Nelson</text>
+          <text x="835" y="622">New Zealand</text>
         </g>
       </svg>
 
@@ -1125,8 +995,8 @@
 
 <footer>
   <div class="wrap">
-    <div class="f-brand">Berlin → Kuala Lumpur → Bali → the world → home</div>
-    <div class="f-note">A year on the road, updated as we go</div>
+    <div class="f-brand"></div>
+    <div class="f-note"></div>
   </div>
 </footer>
 
