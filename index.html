@@ -87,7 +87,7 @@
   .update-card.feature{grid-column:1 / 2; grid-row:1 / span 2;}
   .update-card .thumb{display:block; width:100%; aspect-ratio:16/10; overflow:hidden; background:var(--paper-dim);}
   .update-card.feature .thumb{aspect-ratio:4/3;}
-  .update-card .thumb img{display:block; width:100%; height:100%; object-fit:cover; transition:transform .25s ease;}
+  .update-card .thumb img{display:block; width:100%; height:100%; object-fit:cover; transition:transform .25s ease; cursor:zoom-in;}
   .update-card:hover .thumb img{transform:scale(1.02);}
   .update-card .content{padding:16px 16px 18px; display:flex; flex-direction:column; gap:10px; flex:1;}
   .update-meta{display:flex; align-items:center; justify-content:space-between; gap:10px; font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); text-transform:uppercase; letter-spacing:0.06em;}
@@ -336,16 +336,26 @@
   .diary-entry.flip .diary-text{order:1;}
   .diary-photo img{
     display:block; border-radius:14px; box-shadow:0 22px 40px -20px rgba(28,43,39,0.45);
-    width:100%; height:auto; max-width:100%;
+    width:100%; height:auto; max-width:100%; cursor:zoom-in;
   }
   .diary-photo .cap{
     font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
     margin-top:9px; letter-spacing:0.02em;
   }
   .diary-photo-pair{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start;}
-  .diary-photo-pair.triple{grid-template-columns:1.2fr 1.2fr 1fr;}
-  .diary-photo-pair.triple img:nth-child(3){grid-column:auto; max-height:none;}
+  .diary-photo-pair.triple{grid-template-columns:1fr; gap:18px;}
+  .diary-photo-pair.triple img{width:auto; max-width:100%; max-height:680px; justify-self:center;}
   .diary-photo-pair img{width:100%; max-width:100%; height:auto; min-height:0; border-radius:12px; box-shadow:0 16px 30px -16px rgba(28,43,39,0.4);}
+  .diary-photo img:focus-visible{outline:3px solid var(--gold); outline-offset:4px;}
+  .photo-lightbox{position:fixed; inset:0; z-index:1000; display:none; place-items:center; padding:28px; background:rgba(13,24,22,.92);}
+  .photo-lightbox.open{display:grid;}
+  .photo-lightbox img{display:block; max-width:min(94vw,1400px); max-height:88vh; width:auto; height:auto; border-radius:14px; box-shadow:0 28px 80px rgba(0,0,0,.55);}
+  .photo-lightbox button{position:fixed; border:0; border-radius:999px; width:46px; height:46px; display:grid; place-items:center; background:rgba(255,255,255,.94); color:var(--ink); font:28px/1 Arial,sans-serif; cursor:pointer; box-shadow:0 8px 24px rgba(0,0,0,.25);}
+  .photo-lightbox .lightbox-close{top:18px; right:18px;}
+  .photo-lightbox .lightbox-prev{left:18px; top:50%; transform:translateY(-50%);}
+  .photo-lightbox .lightbox-next{right:18px; top:50%; transform:translateY(-50%);}
+  .photo-lightbox .lightbox-caption{position:fixed; left:24px; right:24px; bottom:14px; color:#fff; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:12px;}
+  body.lightbox-open{overflow:hidden;}
   .diary-text .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:600; margin-bottom:8px; display:block;}
   .diary-text h4{font-family:'Fraunces', serif; font-size:20px; color:var(--ink); margin-bottom:8px; font-weight:600;}
   .diary-text p{font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0;}
@@ -353,6 +363,11 @@
     .diary-entry, .diary-entry.flip{grid-template-columns:1fr;}
     .diary-entry.flip .diary-photo, .diary-entry.flip .diary-text{order:initial;}
     .diary-photo img, .diary-photo-pair img{width:100%; height:auto;}
+    .diary-photo-pair.triple img{width:auto; max-height:none;}
+    .photo-lightbox{padding:16px;}
+    .photo-lightbox button{width:40px; height:40px; font-size:24px;}
+    .photo-lightbox .lightbox-prev{left:8px;}
+    .photo-lightbox .lightbox-next{right:8px;}
   }
 
 </style>
@@ -1285,6 +1300,81 @@
     <div class="f-note"></div>
   </div>
 </footer>
+
+<div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close photo viewer">&times;</button>
+  <button class="lightbox-prev" type="button" aria-label="Previous photo">&#8249;</button>
+  <img src="" alt="">
+  <button class="lightbox-next" type="button" aria-label="Next photo">&#8250;</button>
+  <div class="lightbox-caption" aria-live="polite"></div>
+</div>
+
+<script>
+  (function () {
+    const photos = Array.from(document.querySelectorAll('.update-card .thumb img, .diary-photo img'));
+    const lightbox = document.getElementById('photo-lightbox');
+    const fullPhoto = lightbox.querySelector('img');
+    const caption = lightbox.querySelector('.lightbox-caption');
+    const closeButton = lightbox.querySelector('.lightbox-close');
+    let currentIndex = 0;
+    let lastFocused = null;
+
+    function showPhoto(index) {
+      currentIndex = (index + photos.length) % photos.length;
+      const photo = photos[currentIndex];
+      fullPhoto.src = photo.currentSrc || photo.src;
+      fullPhoto.alt = photo.alt;
+      caption.textContent = photo.alt;
+    }
+
+    function openLightbox(index) {
+      lastFocused = document.activeElement;
+      showPhoto(index);
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('lightbox-open');
+      closeButton.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lightbox-open');
+      fullPhoto.src = '';
+      if (lastFocused) lastFocused.focus();
+    }
+
+    photos.forEach(function (photo, index) {
+      photo.tabIndex = 0;
+      photo.setAttribute('role', 'button');
+      photo.setAttribute('aria-label', 'Open photo: ' + photo.alt);
+      photo.addEventListener('click', function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        openLightbox(index);
+      });
+      photo.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openLightbox(index);
+        }
+      });
+    });
+
+    closeButton.addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', function () { showPhoto(currentIndex - 1); });
+    lightbox.querySelector('.lightbox-next').addEventListener('click', function () { showPhoto(currentIndex + 1); });
+    lightbox.addEventListener('click', function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (!lightbox.classList.contains('open')) return;
+      if (event.key === 'Escape') closeLightbox();
+      if (event.key === 'ArrowLeft') showPhoto(currentIndex - 1);
+      if (event.key === 'ArrowRight') showPhoto(currentIndex + 1);
+    });
+  }());
+</script>
 
 </body>
 </html>
