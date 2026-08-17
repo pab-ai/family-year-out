@@ -295,13 +295,13 @@
   .diary-head h3{font-family:'Fraunces', serif; font-size:24px; color:var(--teal-deep); font-weight:600;}
   .diary-head p{font-size:14.5px; color:var(--ink-soft); margin-top:6px; max-width:60ch;}
   .diary-entry{
-    display:grid; grid-template-columns:1fr 1fr; gap:32px; align-items:center;
+    display:grid; grid-template-columns:1.25fr 1fr; gap:32px; align-items:center;
     margin:38px 0;
   }
   .diary-entry.flip .diary-photo{order:2;}
   .diary-entry.flip .diary-text{order:1;}
   .diary-photo img{
-    width:100%; height:auto; display:block; border-radius:14px;
+    width:100%; height:540px; object-fit:cover; display:block; border-radius:14px;
     box-shadow:0 22px 40px -20px rgba(28,43,39,0.45);
   }
   .diary-photo .cap{
@@ -309,9 +309,9 @@
     margin-top:9px; letter-spacing:0.02em;
   }
   .diary-photo-pair{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
-  .diary-photo-pair.triple{grid-template-columns:repeat(2, minmax(0, 1fr));}
-  .diary-photo-pair.triple img:nth-child(3){grid-column:1 / -1; max-height:420px;}
-  .diary-photo-pair img{width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 16px 30px -16px rgba(28,43,39,0.4);}
+  .diary-photo-pair.triple{grid-template-columns:1.2fr 1.2fr 1fr;}
+  .diary-photo-pair.triple img:nth-child(3){grid-column:auto; max-height:420px;}
+  .diary-photo-pair img{width:100%; height:100%; min-height:280px; object-fit:cover; border-radius:12px; box-shadow:0 16px 30px -16px rgba(28,43,39,0.4);}
   .diary-text .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:600; margin-bottom:8px; display:block;}
   .diary-text h4{font-family:'Fraunces', serif; font-size:20px; color:var(--ink); margin-bottom:8px; font-weight:600;}
   .diary-text p{font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0;}
@@ -975,7 +975,7 @@
         <div class="diary-photo-pair triple">
           <img src="images/bali-bedulu-new-villa.jpg" alt="New villa in Bedulu, Bali">
           <img src="images/bali-wood-school-first-day-assembly.jpeg" alt="School assembly on the first day at Bali Wood School">
-          <img src="images/bali-wood-school-independence-day-didi-teacher-lyan.jpeg" alt="Lyan with teacher and independence day celebration">
+          <img src="images/bali-wood-school-lyan-teacher-children.jpg" alt="Lyan with teacher and independence day celebration">
         </div>
         <div class="cap">Villa life, school assembly and independence celebrations.</div>
       </div>
