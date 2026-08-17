@@ -309,6 +309,8 @@
     margin-top:9px; letter-spacing:0.02em;
   }
   .diary-photo-pair{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .diary-photo-pair.triple{grid-template-columns:repeat(2, minmax(0, 1fr));}
+  .diary-photo-pair.triple img:nth-child(3){grid-column:1 / -1; max-height:420px;}
   .diary-photo-pair img{width:100%; height:100%; object-fit:cover; border-radius:12px; box-shadow:0 16px 30px -16px rgba(28,43,39,0.4);}
   .diary-text .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:600; margin-bottom:8px; display:block;}
   .diary-text h4{font-family:'Fraunces', serif; font-size:20px; color:var(--ink); margin-bottom:8px; font-weight:600;}
@@ -938,7 +940,7 @@
 
     <div class="diary-entry flip">
       <div class="diary-photo">
-        <div class="diary-photo-pair" style="grid-template-columns:repeat(3, minmax(0, 1fr));">
+        <div class="diary-photo-pair triple">
           <img src="images/Bali-wood-school-noams-class.JPG" alt="Bali Wood School class photo">
           <img src="images/bali-wood-school-noam-class-assembly.JPG" alt="Noam at Wood School assembly">
           <img src="images/bali-wood-school-noam-plant-lessons.jpeg" alt="Plant lesson at Bali Wood School">
@@ -954,7 +956,7 @@
 
     <div class="diary-entry">
       <div class="diary-photo">
-        <div class="diary-photo-pair" style="grid-template-columns:repeat(3, minmax(0, 1fr));">
+        <div class="diary-photo-pair triple">
           <img src="images/bali-temple1.jpeg" alt="Temple in Bali">
           <img src="images/bali-poh-gading-waterfall.jpeg" alt="Bali waterfall view">
           <img src="images/bali-poh-gading-waterfall-family.jpeg" alt="Family at a Bali waterfall">
@@ -970,9 +972,9 @@
 
     <div class="diary-entry flip">
       <div class="diary-photo">
-        <div class="diary-photo-pair" style="grid-template-columns:repeat(3, minmax(0, 1fr));">
+        <div class="diary-photo-pair triple">
           <img src="images/bali-bedulu-new-villa.jpg" alt="New villa in Bedulu, Bali">
-          <img src="images/bali-wood%20school-first-day%20assembly.jpeg" alt="School assembly on the first day at Bali Wood School">
+          <img src="images/bali-wood-school-first-day-assembly.jpeg" alt="School assembly on the first day at Bali Wood School">
           <img src="images/bali-wood-school-independence-day-didi-teacher-lyan.jpeg" alt="Lyan with teacher and independence day celebration">
         </div>
         <div class="cap">Villa life, school assembly and independence celebrations.</div>
