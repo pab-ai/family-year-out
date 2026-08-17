@@ -355,6 +355,10 @@
     .diary-photo img, .diary-photo-pair img{width:100%; height:auto;}
   }
 
+  /* Debug badges for image diagnosis (temporary) */
+  .img-debug-badge{position:absolute; right:8px; top:8px; background:rgba(0,0,0,0.6); color:#fff; font-family:monospace; font-size:11px; padding:6px 8px; border-radius:8px; z-index:40}
+  .diary-photo{position:relative}
+
 </style>
 </head>
 <body>
@@ -463,6 +467,28 @@
 </section>
 
 <div class="wrap"><div class="divider"></div></div>
+
+  <script>
+    // Temporary debug overlay: show filename and natural size for images in Bali/Malaysia
+    (function(){
+      function makeBadge(img){
+        var src = img.getAttribute('src') || '';
+        var name = src.split('/').pop();
+        var w = img.naturalWidth || 0;
+        var h = img.naturalHeight || 0;
+        var b = document.createElement('div');
+        b.className = 'img-debug-badge';
+        b.textContent = name + ' \u2014 ' + w + 'x' + h;
+        img.closest('.diary-photo')?.appendChild(b);
+      }
+      window.addEventListener('load', function(){
+        var sel = document.querySelectorAll('#bali img, #malaysia img');
+        sel.forEach(function(img){
+          if(img.complete) makeBadge(img); else img.addEventListener('load', function(){ makeBadge(img); });
+        });
+      });
+    })();
+  </script>
 
 <!-- BALI -->
 <section id="bali">
