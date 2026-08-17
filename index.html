@@ -334,6 +334,8 @@
   }
   .diary-entry.flip .diary-photo{order:2;}
   .diary-entry.flip .diary-text{order:1;}
+  .diary-entry.gallery-three-wide{grid-template-columns:1fr; gap:22px;}
+  .diary-entry.gallery-three-wide .diary-text{max-width:70ch;}
   .diary-photo img{
     display:block; border-radius:14px; box-shadow:0 22px 40px -20px rgba(28,43,39,0.45);
     width:100%; height:auto; max-width:100%; cursor:zoom-in;
@@ -345,6 +347,7 @@
   .diary-photo-pair{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start;}
   .diary-photo-pair.triple{grid-template-columns:1fr; gap:18px;}
   .diary-photo-pair.triple img{width:auto; max-width:100%; max-height:680px; justify-self:center;}
+  .diary-photo-pair.three-across{grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px;}
   .diary-photo-pair img{width:100%; max-width:100%; height:auto; min-height:0; border-radius:12px; box-shadow:0 16px 30px -16px rgba(28,43,39,0.4);}
   .diary-photo img:focus-visible{outline:3px solid var(--gold); outline-offset:4px;}
   .photo-lightbox{position:fixed; inset:0; z-index:1000; display:none; place-items:center; padding:28px; background:rgba(13,24,22,.92);}
@@ -364,6 +367,7 @@
     .diary-entry.flip .diary-photo, .diary-entry.flip .diary-text{order:initial;}
     .diary-photo img, .diary-photo-pair img{width:100%; height:auto;}
     .diary-photo-pair.triple img{width:auto; max-height:none;}
+    .diary-photo-pair.three-across{grid-template-columns:1fr; gap:18px;}
     .photo-lightbox{padding:16px;}
     .photo-lightbox button{width:40px; height:40px; font-size:24px;}
     .photo-lightbox .lightbox-prev{left:8px;}
@@ -681,9 +685,9 @@
       </div>
     </div>
 
-    <div class="diary-entry flip">
+    <div class="diary-entry flip gallery-three-wide">
       <div class="diary-photo">
-        <div class="diary-photo-pair" style="grid-template-columns:repeat(3, minmax(0, 1fr));">
+        <div class="diary-photo-pair three-across">
           <img src="images/singapore-dumpings.jpeg" alt="Singapore dumplings and food favourites">
           <img src="images/singapore-seasaw.jpeg" alt="Family on a seesaw in Singapore">
           <img src="images/singapore-sushiro.jpeg" alt="Noam and Lyan at Sushiro in Singapore">
