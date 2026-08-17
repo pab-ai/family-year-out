@@ -336,16 +336,16 @@
   .diary-entry.flip .diary-text{order:1;}
   .diary-photo img{
     display:block; border-radius:14px; box-shadow:0 22px 40px -20px rgba(28,43,39,0.45);
-    width:100%; height:auto; max-width:100%; object-fit:none; object-position:center;
+    width:100%; height:auto; max-width:100%;
   }
   .diary-photo .cap{
     font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
     margin-top:9px; letter-spacing:0.02em;
   }
-  .diary-photo-pair{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  .diary-photo-pair{display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:start;}
   .diary-photo-pair.triple{grid-template-columns:1.2fr 1.2fr 1fr;}
   .diary-photo-pair.triple img:nth-child(3){grid-column:auto; max-height:none;}
-  .diary-photo-pair img{width:100%; max-width:100%; height:auto; min-height:0; object-fit:none; object-position:center; border-radius:12px; box-shadow:0 16px 30px -16px rgba(28,43,39,0.4);} 
+  .diary-photo-pair img{width:100%; max-width:100%; height:auto; min-height:0; border-radius:12px; box-shadow:0 16px 30px -16px rgba(28,43,39,0.4);}
   .diary-text .tag{font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); font-weight:600; margin-bottom:8px; display:block;}
   .diary-text h4{font-family:'Fraunces', serif; font-size:20px; color:var(--ink); margin-bottom:8px; font-weight:600;}
   .diary-text p{font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0;}
@@ -354,10 +354,6 @@
     .diary-entry.flip .diary-photo, .diary-entry.flip .diary-text{order:initial;}
     .diary-photo img, .diary-photo-pair img{width:100%; height:auto;}
   }
-
-  /* Debug badges for image diagnosis (temporary) */
-  .img-debug-badge{position:absolute; right:8px; top:8px; background:rgba(0,0,0,0.6); color:#fff; font-family:monospace; font-size:11px; padding:6px 8px; border-radius:8px; z-index:40}
-  .diary-photo{position:relative}
 
 </style>
 </head>
@@ -467,28 +463,6 @@
 </section>
 
 <div class="wrap"><div class="divider"></div></div>
-
-  <script>
-    // Temporary debug overlay: show filename and natural size for images in Bali/Malaysia
-    (function(){
-      function makeBadge(img){
-        var src = img.getAttribute('src') || '';
-        var name = src.split('/').pop();
-        var w = img.naturalWidth || 0;
-        var h = img.naturalHeight || 0;
-        var b = document.createElement('div');
-        b.className = 'img-debug-badge';
-        b.textContent = name + ' \u2014 ' + w + 'x' + h;
-        img.closest('.diary-photo')?.appendChild(b);
-      }
-      window.addEventListener('load', function(){
-        var sel = document.querySelectorAll('#bali img, #malaysia img');
-        sel.forEach(function(img){
-          if(img.complete) makeBadge(img); else img.addEventListener('load', function(){ makeBadge(img); });
-        });
-      });
-    })();
-  </script>
 
 <!-- BALI -->
 <section id="bali">
