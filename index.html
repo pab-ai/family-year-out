@@ -149,7 +149,7 @@
   }
   .overview table{
     width:100%;
-    min-width:640px;
+    min-width:460px;
     border-collapse:collapse;
   }
   .overview th{
@@ -169,13 +169,17 @@
   .overview .place a:hover{color:var(--coral); border-bottom-color:var(--coral);}
   .overview .dates{font-family:'IBM Plex Mono', monospace; color:var(--ink-soft); font-size:12.5px; white-space:nowrap;}
   .overview .nights{color:var(--gold); margin-left:8px;}
-  .overview .hotel a{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--teal); text-decoration:none; white-space:nowrap;}
-  .overview .hotel a:hover{color:var(--coral);}
-  .overview .hotel.dash{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--line);}
   .overview tr.hub td{background:rgba(15,92,85,0.08);}
   .overview tr.hub .place{color:var(--teal-deep);}
   .overview tr.tbd .place, .overview tr.tbd .dates{color:var(--coral); opacity:0.85;}
-  @media (max-width:600px){ .overview th, .overview td{padding:9px 12px; font-size:12.5px;} }
+  @media (max-width:600px){
+    .overview-scroll{padding:0 6px;}
+    .overview table{min-width:0; table-layout:fixed;}
+    .overview th, .overview td{padding:9px 8px; font-size:12.5px;}
+    .overview th:first-child, .overview td:first-child{width:56%;}
+    .overview .dates{white-space:normal;}
+    .overview .nights{display:block; margin:4px 0 0;}
+  }
 
   /* ---------- section shell ---------- */
   section{padding:64px 0;}
@@ -400,26 +404,26 @@
     <div class="overview">
       <div class="overview-scroll">
       <table>
-        <tr><th>Where</th><th>When</th><th>Stay</th></tr>
-        <tr><td class="place"><a href="#loc-kl">Kuala Lumpur 🇲🇾</a></td><td class="dates">15 – 18 Jul <span class="nights">3 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=3.158515,101.704491" target="_blank" rel="noopener">Infinity Pool Studio ↗</a></td></tr>
-        <tr><td class="place"><a href="#loc-ipoh">Ipoh 🇲🇾</a></td><td class="dates">18 – 19 Jul <span class="nights">1 night</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=292+Jalan+Sultan+Idris+Shah+30000+Ipoh+Perak+Malaysia" target="_blank" rel="noopener">Weil Hotel Ipoh ↗</a></td></tr>
-        <tr><td class="place"><a href="#loc-penang">Penang 🇲🇾</a></td><td class="dates">19 – 24 Jul <span class="nights">5 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=22+Jalan+Macalister+10400+George+Town+Penang+Malaysia" target="_blank" rel="noopener">22 Macalisterz ↗</a></td></tr>
-        <tr><td class="place"><a href="#loc-jandabaik">Janda Baik 🇲🇾</a></td><td class="dates">24 – 25 Jul <span class="nights">1 night</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=Sailor%27s+Rest+Lorong+Dato+Panglima+Kuala+Lurah+28750+Kampung+Janda+Baik+Malaysia" target="_blank" rel="noopener">Sailor's Rest ↗</a></td></tr>
-        <tr><td class="place"><a href="#loc-rompin">Kuala Rompin 🇲🇾</a></td><td class="dates">25 – 26 Jul <span class="nights">1 night</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=Rompin+Beach+Resorts+Lot+340+Jalan+Pantai+Hiburan+26800+Kuala+Rompin+Malaysia" target="_blank" rel="noopener">Rompin Beach Resorts ↗</a></td></tr>
-        <tr><td class="place"><a href="#loc-island">Pulau Besar 🇲🇾</a></td><td class="dates">26 – 29 Jul <span class="nights">3 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=Aseania+Resort+Pulau+Besar+Lot+35+Pulau+Besar+86800+Mersing+Johor" target="_blank" rel="noopener">Aseania Resort ↗</a></td></tr>
-        <tr><td class="place"><a href="#loc-singapore">Singapore 🇸🇬</a></td><td class="dates">29 Jul – 1 Aug <span class="nights">3 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&query=1.286572,103.84449" target="_blank" rel="noopener">Furama City Centre ↗</a></td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-1">Bali 🇮🇩</a></td><td class="dates">1 Aug – 10 Oct <span class="nights">70 nights</span></td><td class="hotel"><a href="https://maps.app.goo.gl/t32f2YbXMbe6jdP1A" target="_blank" rel="noopener">Bedulu Boutique Villas ↗</a></td></tr>
-        <tr><td class="place"><a href="#loc-hongkong">Hong Kong 🇭🇰</a></td><td class="dates">10 – 14 Oct <span class="nights">4 nights</span></td><td class="hotel"><a href="https://www.google.com/maps/search/?api=1&amp;query=Royal+Plaza+Hotel+193+Prince+Edward+Road+West+Kowloon+Hong+Kong" target="_blank" rel="noopener">Royal Plaza Hotel ↗</a></td></tr>
-        <tr><td class="place"><a href="#loc-vietnam">China &amp; Vietnam 🇨🇳🇻🇳</a></td><td class="dates">14 – 24 Oct <span class="nights">10 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-2">Bali 🇮🇩</a></td><td class="dates">24 Oct – 18 Dec <span class="nights">55 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr><td class="place"><a href="#loc-australia">Australia 🇦🇺</a></td><td class="dates">19 Dec – 4 Jan <span class="nights">16 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr><td class="place"><a href="#loc-nz">New Zealand 🇳🇿</a></td><td class="dates">4 – 23 Jan <span class="nights">19 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-3">Bali 🇮🇩</a></td><td class="dates">23 Jan – 6 Mar <span class="nights">42 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr><td class="place"><a href="#loc-philippines">Philippines 🇵🇭</a></td><td class="dates">6 – 14 Mar <span class="nights">8 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-4">Bali 🇮🇩</a></td><td class="dates">14 Mar – 11 Apr <span class="nights">28 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="tbd"><td class="place"><a href="#loc-tbd-apr">Somewhere TBD</a></td><td class="dates">11 – 18 Apr <span class="nights">7 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr class="hub"><td class="place"><a href="#leg-5">Bali 🇮🇩</a></td><td class="dates">18 Apr – 30 Jun <span class="nights">73 nights</span></td><td class="hotel dash">—</td></tr>
-        <tr><td class="place"><a href="#loc-mexico">Mexico 🇲🇽</a></td><td class="dates">from 1 Jul</td><td class="hotel dash">—</td></tr>
+        <tr><th>Where</th><th>When</th></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Kuala+Lumpur+Malaysia" target="_blank" rel="noopener">Kuala Lumpur 🇲🇾 ↗</a></td><td class="dates">15 – 18 Jul <span class="nights">3 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Ipoh+Malaysia" target="_blank" rel="noopener">Ipoh 🇲🇾 ↗</a></td><td class="dates">18 – 19 Jul <span class="nights">1 night</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=George+Town+Penang+Malaysia" target="_blank" rel="noopener">Penang 🇲🇾 ↗</a></td><td class="dates">19 – 24 Jul <span class="nights">5 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Janda+Baik+Malaysia" target="_blank" rel="noopener">Janda Baik 🇲🇾 ↗</a></td><td class="dates">24 – 25 Jul <span class="nights">1 night</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Kuala+Rompin+Malaysia" target="_blank" rel="noopener">Kuala Rompin 🇲🇾 ↗</a></td><td class="dates">25 – 26 Jul <span class="nights">1 night</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Pulau+Besar+Mersing+Johor+Malaysia" target="_blank" rel="noopener">Pulau Besar 🇲🇾 ↗</a></td><td class="dates">26 – 29 Jul <span class="nights">3 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Singapore" target="_blank" rel="noopener">Singapore 🇸🇬 ↗</a></td><td class="dates">29 Jul – 1 Aug <span class="nights">3 nights</span></td></tr>
+        <tr class="hub"><td class="place"><a href="https://maps.app.goo.gl/t32f2YbXMbe6jdP1A" target="_blank" rel="noopener">Bedulu Boutique Villas 🇮🇩 ↗</a></td><td class="dates">1 Aug – 10 Oct <span class="nights">70 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hong+Kong" target="_blank" rel="noopener">Hong Kong 🇭🇰 ↗</a></td><td class="dates">10 – 14 Oct <span class="nights">4 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Hanoi+Vietnam" target="_blank" rel="noopener">China &amp; Vietnam 🇨🇳🇻🇳 ↗</a></td><td class="dates">14 – 24 Oct <span class="nights">10 nights</span></td></tr>
+        <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">24 Oct – 18 Dec <span class="nights">55 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Australia" target="_blank" rel="noopener">Australia 🇦🇺 ↗</a></td><td class="dates">19 Dec – 4 Jan <span class="nights">16 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=New+Zealand" target="_blank" rel="noopener">New Zealand 🇳🇿 ↗</a></td><td class="dates">4 – 23 Jan <span class="nights">19 nights</span></td></tr>
+        <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">23 Jan – 6 Mar <span class="nights">42 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=El+Nido+Palawan+Philippines" target="_blank" rel="noopener">Philippines 🇵🇭 ↗</a></td><td class="dates">6 – 14 Mar <span class="nights">8 nights</span></td></tr>
+        <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">14 Mar – 11 Apr <span class="nights">28 nights</span></td></tr>
+        <tr class="tbd"><td class="place">Somewhere TBD</td><td class="dates">11 – 18 Apr <span class="nights">7 nights</span></td></tr>
+        <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">18 Apr – 30 Jun <span class="nights">73 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mexico" target="_blank" rel="noopener">Mexico 🇲🇽 ↗</a></td><td class="dates">from 1 Jul</td></tr>
       </table>
       </div>
     </div>
