@@ -344,6 +344,11 @@
     display:block; border-radius:14px; box-shadow:0 22px 40px -20px rgba(28,43,39,0.45);
     width:100%; height:auto; max-width:100%; cursor:zoom-in;
   }
+  .diary-photo video{
+    display:block; width:100%; height:auto; border-radius:14px; background:#0d1816;
+    box-shadow:0 22px 40px -20px rgba(28,43,39,0.45);
+  }
+  .diary-video-grid{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:18px;}
   .diary-photo .cap{
     font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft);
     margin-top:9px; letter-spacing:0.02em;
@@ -372,6 +377,7 @@
     .diary-photo img, .diary-photo-pair img{width:100%; height:auto;}
     .diary-photo-pair.triple img{width:auto; max-height:none;}
     .diary-photo-pair.three-across{grid-template-columns:1fr; gap:18px;}
+    .diary-video-grid{grid-template-columns:1fr;}
     .photo-lightbox{padding:16px;}
     .photo-lightbox button{width:40px; height:40px; font-size:24px;}
     .photo-lightbox .lightbox-prev{left:8px;}
@@ -417,8 +423,8 @@
         <tr><td class="place"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Shenzhen+China&amp;destination=Nanning+China&amp;waypoints=Guangzhou+China%7CYangshuo+China" target="_blank" rel="noopener">Shenzhen, Guangzhou, Yangshuo, Nanning 🇨🇳 ↗</a></td><td class="dates">13 – 17 Oct <span class="nights">4 nights</span></td></tr>
         <tr><td class="place"><a href="https://www.google.com/maps/dir/?api=1&amp;origin=Hanoi+Vietnam&amp;destination=Hoi+An+Vietnam" target="_blank" rel="noopener">Hanoi, Hoi An 🇻🇳 ↗</a></td><td class="dates">18 – 24 Oct <span class="nights">6 nights</span></td></tr>
         <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">24 Oct – 18 Dec <span class="nights">55 nights</span></td></tr>
-        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Australia" target="_blank" rel="noopener">Australia 🇦🇺 ↗</a></td><td class="dates">19 Dec – 4 Jan <span class="nights">16 nights</span></td></tr>
-        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=New+Zealand" target="_blank" rel="noopener">New Zealand 🇳🇿 ↗</a></td><td class="dates">4 – 23 Jan <span class="nights">19 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=New+Zealand" target="_blank" rel="noopener">New Zealand 🇳🇿 ↗</a></td><td class="dates">19 Dec – 3 Jan <span class="nights">15 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Australia" target="_blank" rel="noopener">Australia 🇦🇺 ↗</a></td><td class="dates">3 – 23 Jan <span class="nights">20 nights</span></td></tr>
         <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">23 Jan – 6 Mar <span class="nights">42 nights</span></td></tr>
         <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=El+Nido+Palawan+Philippines" target="_blank" rel="noopener">Philippines 🇵🇭 ↗</a></td><td class="dates">6 – 14 Mar <span class="nights">8 nights</span></td></tr>
         <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">14 Mar – 11 Apr <span class="nights">28 nights</span></td></tr>
@@ -444,17 +450,17 @@
         <div class="latest-kicker">Latest updates</div>
         <h2>What we’re up to right now</h2>
       </div>
-      <div class="last-updated">Updated most recently: Bali / Bedulu</div>
+      <div class="last-updated">Updated most recently: Bali / Gili Islands</div>
     </div>
 
     <div class="latest-list">
       <article class="update-card feature">
-        <a class="thumb" href="#leg-1"><img src="images/bali-bedulu-villa-nora-pablo-our-new-house.jpeg" alt="The family in front of their new Bali villa"></a>
+        <a class="thumb" href="#gili-islands"><img src="images/gili-meno-sunset-family.JPG" alt="The family together at sunset on Gili Meno"></a>
         <div class="content">
-          <div class="update-meta"><span>Current chapter</span><span>Bedulu</span></div>
-          <h3>We’ve landed in our Bali home and started settling in.</h3>
-          <p>Our villa in Bedulu is finally feeling like home: routines, school mornings, and the rhythms of village life are starting to settle in around us.</p>
-          <a class="read-more" href="#leg-1">Read the Bali story →</a>
+          <div class="update-meta"><span>Island escape</span><span>Gili Air &amp; Gili Meno</span></div>
+          <h3>Boat days, coral reefs and turtles in the Gilis.</h3>
+          <p>We crossed from Bali for hammocks, beaches, snorkelling with turtles and slow island days off Lombok.</p>
+          <a class="read-more" href="#gili-islands">Read the Gili story →</a>
         </div>
       </article>
 
@@ -610,6 +616,84 @@
         <span class="tag">Celebrations</span>
         <h4>Independence Day and new routines</h4>
         <p>The family has settled into a beautiful rhythm here, and the school celebrations made the arrival in Bali feel especially joyful.</p>
+      </div>
+    </div>
+
+    <div class="sec-head" style="margin-top:56px; margin-bottom:18px;">
+      <div>
+        <div class="sec-num">September update</div>
+        <h2 id="gili-islands" style="font-size:26px;">Island days and settling in</h2>
+      </div>
+      <div class="sec-tag">Gili Air · Gili Meno · Bedulu</div>
+    </div>
+
+    <div class="diary-entry gallery-three-wide">
+      <div class="diary-photo">
+        <div class="diary-photo-pair three-across">
+          <img src="images/gili-air-hammock-lyan-nora.jpeg" alt="Nora and Lyan relaxing together in a hammock on Gili Air">
+          <img src="images/gili-air-snorkeling.jpeg" alt="Noam ready to snorkel from the beach on Gili Air">
+          <img src="images/gili-meno-boys-beach.jpg" alt="Pablo, Noam and Lyan on the beach at Gili Meno">
+          <img src="images/gili-meno-lyan-breakfast.JPG" alt="Lyan enjoying breakfast on Gili Meno">
+          <img src="images/gili-meno-sunset-family.JPG" alt="The family together at sunset on Gili Meno">
+        </div>
+        <div class="cap">Hammocks, beaches, snorkelling and sunset on Gili Air and Gili Meno.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Island escape</span>
+        <h4>Across the water to Gili Air and Gili Meno</h4>
+        <p>We travelled by boat to Gili Air and Gili Meno, two small and beautiful islands off Lombok. The crossing took us through the deep waters where the Indian and Pacific oceans meet — a bumpy ride over water around 3,000 metres deep. Once there, everything slowed down: hammocks, beaches, coral reefs, snorkelling with turtles and plenty more boat rides.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip gallery-three-wide">
+      <div class="diary-photo">
+        <div class="diary-photo-pair three-across">
+          <img src="images/bali-wood-school-noam-annie-dog.jpeg" alt="Noam with his favourite school dog Annie at Bali Wood School">
+          <img src="images/bali-noam-lyan-scootering.jpeg" alt="Noam and Lyan ready for the school run on a scooter in Bali">
+          <img src="images/bali-lyan-home-swimming-lesson.jpeg" alt="Lyan having a swimming lesson at home in Bali">
+        </div>
+        <div class="cap">Annie, school runs and another busy week of activities.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">School rhythm</span>
+        <h4>Annie and full days at Wood School</h4>
+        <p>At Bali Wood School, Noam found his favourite dog, Annie. Both boys are settling in beautifully, with loads of activities filling their school days — and more swimming, scootering and exploring once they are home.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry gallery-three-wide">
+      <div class="diary-photo">
+        <div class="diary-photo-pair three-across">
+          <img src="images/bali-family-rice-terraces.JPG" alt="The family together among the green rice terraces in Bali">
+          <img src="images/bali-our-house-rice-terraces-walk.jpeg" alt="Pablo and Lyan walking beside the rice paddies near our house">
+          <img src="images/bali-noam-pablo-lyan-jungle.jpeg" alt="Pablo, Noam and Lyan walking through the jungle in Bali">
+        </div>
+        <div class="diary-video-grid">
+          <video controls playsinline preload="metadata" aria-label="A walk through the rice terraces around our Bali house">
+            <source src="images/bali-our-house-rice-terraces-walk-film.MOV" type="video/mp4">
+          </video>
+          <video controls playsinline preload="metadata" aria-label="Sunrise over the rice paddies from our Bali house">
+            <source src="images/bali-our-house-sunrise-film.MOV" type="video/mp4">
+          </video>
+        </div>
+        <div class="cap">Rice-paddy walks, jungle paths and changing light around our home.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">Home in Bedulu</span>
+        <h4>Living above the rice paddies</h4>
+        <p>We are really enjoying our house overlooking the rice paddies. Walks lead us along the narrow paths through the fields and into the jungle, often beginning or ending with the paddies changing colour in the light.</p>
+      </div>
+    </div>
+
+    <div class="diary-entry flip">
+      <div class="diary-photo">
+        <img src="images/bali-nora-coconut.JPG" alt="Nora enjoying a fresh coconut in Bali">
+        <div class="cap">Making space for lessons, movement and quieter moments.</div>
+      </div>
+      <div class="diary-text">
+        <span class="tag">While the boys are at school</span>
+        <h4>Indonesian lessons, yoga and meditation</h4>
+        <p>Nora and Pablo have started daily Indonesian lessons while the boys are in school. They are also finding time to exercise; Nora has taken up yoga, and Pablo joined Buddhist monks for a one-day meditation retreat.</p>
       </div>
     </div>
   </div>
@@ -1216,18 +1300,31 @@
         </div>
       </div>
 
-      <div class="tl-item">
+      <div class="tl-item active">
         <div class="tl-dot">•</div>
-        <div class="tl-card">
-          <div class="tl-top" id="loc-australia"><div class="tl-title">Australia</div><div class="tl-dates">19 Dec 2026 – 4 Jan 2027</div></div>
+        <div class="tl-card" style="padding:0; overflow:hidden; background:transparent; border:none;">
+          <div class="tl-top" id="loc-nz" style="padding:20px 22px 0;"><div class="tl-title">Bali → Christchurch</div><div class="tl-dates">19 – 20 Dec 2026</div></div>
+          <div class="pass" style="border-radius:0; margin-top:14px;">
+            <div class="pass-seg"><div class="code">DPS</div><div class="city">Denpasar · Terminal I</div><div class="time">21:20</div><div class="date">Sat 19 Dec 2026</div></div>
+            <div class="pass-seg"><div class="code">SYD</div><div class="city">Sydney · Terminal 1</div><div class="time">06:25</div><div class="date">Sun 20 Dec 2026</div></div>
+            <div class="pass-stub"><div class="row"><span class="k">Flight</span><span class="v">Qantas QF44</span></div><div class="row"><span class="k">Duration</span><span class="v">6h 05m · direct</span></div><div class="row"><span class="k">Aircraft</span><span class="v">Airbus A330</span></div><div class="row"><span class="k">Cabin</span><span class="v">Economy</span></div></div>
+          </div>
+          <div class="pass" style="border-radius:0; margin-top:3px;">
+            <div class="pass-seg"><div class="code">SYD</div><div class="city">Sydney · Terminal 1</div><div class="time">08:45</div><div class="date">Sun 20 Dec 2026</div></div>
+            <div class="pass-seg"><div class="code">CHC</div><div class="city">Christchurch</div><div class="time">14:00</div><div class="date">Sun 20 Dec 2026</div></div>
+            <div class="pass-stub"><div class="row"><span class="k">Flight</span><span class="v">QF8766 · Emirates</span></div><div class="row"><span class="k">Duration</span><span class="v">3h 15m · direct</span></div><div class="row"><span class="k">Aircraft</span><span class="v">Airbus A380</span></div><div class="row"><span class="k">Cabin</span><span class="v">Economy</span></div></div>
+          </div>
         </div>
       </div>
 
       <div class="tl-item">
         <div class="tl-dot">•</div>
-        <div class="tl-card">
-          <div class="tl-top" id="loc-nz"><div class="tl-title">New Zealand</div><div class="tl-dates">4 – 23 Jan 2027</div></div>
-        </div>
+        <div class="tl-card"><div class="tl-top"><div class="tl-title">New Zealand 🇳🇿</div><div class="tl-dates">19 Dec 2026 – 3 Jan 2027</div></div></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot">•</div>
+        <div class="tl-card"><div class="tl-top" id="loc-australia"><div class="tl-title">Australia 🇦🇺</div><div class="tl-dates">3 – 23 Jan 2027</div></div></div>
       </div>
 
       <div class="tl-item">
