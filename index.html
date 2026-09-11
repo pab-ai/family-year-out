@@ -450,14 +450,14 @@
         <div class="latest-kicker">Latest updates</div>
         <h2>What we’re up to right now</h2>
       </div>
-      <div class="last-updated">Updated most recently: Bali / Gili Islands</div>
+      <div class="last-updated">Updated most recently: September 2026 · Bali / Gili Islands</div>
     </div>
 
     <div class="latest-list">
       <article class="update-card feature">
         <a class="thumb" href="#gili-islands"><img src="images/gili-meno-sunset-family.JPG" alt="The family together at sunset on Gili Meno"></a>
         <div class="content">
-          <div class="update-meta"><span>Island escape</span><span>Gili Air &amp; Gili Meno</span></div>
+          <div class="update-meta"><span>September 2026</span><span>Gili Air &amp; Gili Meno</span></div>
           <h3>Boat days, coral reefs and turtles in the Gilis.</h3>
           <p>We crossed from Bali for hammocks, beaches, snorkelling with turtles and slow island days off Lombok.</p>
           <a class="read-more" href="#gili-islands">Read the Gili story →</a>
@@ -465,22 +465,22 @@
       </article>
 
       <article class="update-card">
-        <a class="thumb" href="#leg-1"><img src="images/bali-wood-school-first-day.jpeg" alt="The family in front of the Wood School before classes begin"></a>
+        <a class="thumb" href="#school-september"><img src="images/bali-wood-school-noam-annie-dog.jpeg" alt="Noam with his favourite school dog Annie at Bali Wood School"></a>
         <div class="content">
-          <div class="update-meta"><span>School</span><span>Wood School</span></div>
-          <h3>Back-to-school energy in Bali.</h3>
-          <p>Noam's first days at Wood School brought a whole new rhythm, with assemblies, routines, and a lot of excitement.</p>
-          <a class="read-more" href="#leg-1">See the updates →</a>
+          <div class="update-meta"><span>September 2026</span><span>Wood School</span></div>
+          <h3>Noam found his favourite school dog, Annie.</h3>
+          <p>The boys are settling in beautifully, with busy school days, swimming, scootering and plenty of new activities.</p>
+          <a class="read-more" href="#school-september">See the school update →</a>
         </div>
       </article>
 
       <article class="update-card">
-        <a class="thumb" href="#leg-1"><img src="images/bali-wood-school-noam-morning-yoga.jpg" alt="Noam practicing yoga in the morning at Bali Wood School"></a>
+        <a class="thumb" href="#home-september"><img src="images/bali-family-rice-terraces.JPG" alt="The family together among the green rice terraces in Bali"></a>
         <div class="content">
-          <div class="update-meta"><span>Morning ritual</span><span>Ubud</span></div>
-          <h3>Morning yoga and slow starts.</h3>
-          <p>We’re learning the tempo of Bali life: warm mornings, school beginnings, and the quiet start to the day before the rest of the world wakes up.</p>
-          <a class="read-more" href="#leg-1">Keep reading →</a>
+          <div class="update-meta"><span>September 2026</span><span>Bedulu</span></div>
+          <h3>Life above the rice paddies.</h3>
+          <p>We’re enjoying sunrise views, walks through the fields and jungle, Indonesian lessons, yoga and quieter routines.</p>
+          <a class="read-more" href="#home-september">See life at home →</a>
         </div>
       </article>
     </div>
@@ -515,7 +515,7 @@
 
     <div class="sec-head" style="margin-top:44px; margin-bottom:18px;">
       <div>
-        <div class="sec-num">As it happened</div>
+        <div class="sec-num">August 2026</div>
         <h2 id="loc-bali" style="font-size:26px;">Bedulu &amp; the Wood School — first impressions</h2>
       </div>
     </div>
@@ -621,7 +621,7 @@
 
     <div class="sec-head" style="margin-top:56px; margin-bottom:18px;">
       <div>
-        <div class="sec-num">September update</div>
+        <div class="sec-num">September 2026</div>
         <h2 id="gili-islands" style="font-size:26px;">Island days and settling in</h2>
       </div>
       <div class="sec-tag">Gili Air · Gili Meno · Bedulu</div>
@@ -645,7 +645,7 @@
       </div>
     </div>
 
-    <div class="diary-entry flip gallery-three-wide">
+    <div class="diary-entry flip gallery-three-wide" id="school-september">
       <div class="diary-photo">
         <div class="diary-photo-pair three-across">
           <img src="images/bali-wood-school-noam-annie-dog.jpeg" alt="Noam with his favourite school dog Annie at Bali Wood School">
@@ -661,7 +661,7 @@
       </div>
     </div>
 
-    <div class="diary-entry gallery-three-wide">
+    <div class="diary-entry gallery-three-wide" id="home-september">
       <div class="diary-photo">
         <div class="diary-photo-pair three-across">
           <img src="images/bali-family-rice-terraces.JPG" alt="The family together among the green rice terraces in Bali">
@@ -1460,6 +1460,20 @@
 
 <script>
   (function () {
+    const augustHeading = document.getElementById('loc-bali').closest('.sec-head');
+    const septemberHeading = document.getElementById('gili-islands').closest('.sec-head');
+    if (augustHeading && septemberHeading) {
+      const newerBlocks = [];
+      let block = septemberHeading;
+      while (block) {
+        newerBlocks.push(block);
+        block = block.nextElementSibling;
+      }
+      newerBlocks.forEach(function (newerBlock) {
+        augustHeading.parentNode.insertBefore(newerBlock, augustHeading);
+      });
+    }
+
     const photos = Array.from(document.querySelectorAll('.update-card .thumb img, .diary-photo img'));
     const lightbox = document.getElementById('photo-lightbox');
     const fullPhoto = lightbox.querySelector('img');
