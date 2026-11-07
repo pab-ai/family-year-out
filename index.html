@@ -86,6 +86,8 @@
   }
   .update-card.feature{grid-column:1 / 2; grid-row:1 / span 2;}
   .update-card .thumb{display:block; width:100%; aspect-ratio:16/10; overflow:hidden; background:var(--paper-dim);}
+  .update-card .content{order:1;}
+  .update-card .thumb{order:2;}
   .update-card.feature .thumb{aspect-ratio:4/3;}
   .update-card .thumb img{display:block; width:100%; height:100%; object-fit:cover; transition:transform .25s ease; cursor:zoom-in;}
   .update-card:hover .thumb img{transform:scale(1.02);}
@@ -260,7 +262,7 @@
   .tl-meta span{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); background:var(--paper-dim); border-radius:6px; padding:4px 9px;}
 
   /* ---------- bali legs strip ---------- */
-  .legstrip{display:grid; grid-template-columns:repeat(5,1fr); gap:14px;}
+  .legstrip{display:grid; grid-template-columns:repeat(2,1fr); gap:14px;}
   @media (max-width:900px){ .legstrip{grid-template-columns:repeat(2,1fr);} }
   @media (max-width:520px){ .legstrip{grid-template-columns:1fr;} }
   .leg{
@@ -333,9 +335,11 @@
   .diary-head h3{font-family:'Fraunces', serif; font-size:24px; color:var(--teal-deep); font-weight:600;}
   .diary-head p{font-size:14.5px; color:var(--ink-soft); margin-top:6px; max-width:60ch;}
   .diary-entry{
-    display:grid; grid-template-columns:1.25fr 1fr; gap:32px; align-items:start;
+    display:grid; grid-template-columns:1fr; gap:22px; align-items:start;
     margin:38px 0;
   }
+  .diary-entry .diary-text{order:1; max-width:70ch;}
+  .diary-entry .diary-photo{order:2;}
   .diary-entry.flip .diary-photo{order:2;}
   .diary-entry.flip .diary-text{order:1;}
   .diary-entry.gallery-three-wide{grid-template-columns:1fr; gap:22px;}
@@ -373,7 +377,8 @@
   .diary-text p{font-size:15px; line-height:1.65; color:var(--ink-soft); margin:0;}
   @media (max-width:760px){
     .diary-entry, .diary-entry.flip{grid-template-columns:1fr;}
-    .diary-entry.flip .diary-photo, .diary-entry.flip .diary-text{order:initial;}
+    .diary-entry .diary-text, .diary-entry.flip .diary-text{order:1;}
+    .diary-entry .diary-photo, .diary-entry.flip .diary-photo{order:2;}
     .diary-photo img, .diary-photo-pair img{width:100%; height:auto;}
     .diary-photo-pair.triple img{width:auto; max-height:none;}
     .diary-photo-pair.three-across{grid-template-columns:1fr; gap:18px;}
@@ -426,8 +431,7 @@
         <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Yogyakarta+Indonesia" target="_blank" rel="noopener">Yogyakarta 🇮🇩 ↗</a></td><td class="dates">14 – 17 Nov <span class="nights">3 nights</span></td></tr>
         <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">17 Nov – 18 Dec <span class="nights">31 nights</span></td></tr>
         <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=New+Zealand" target="_blank" rel="noopener">New Zealand 🇳🇿 ↗</a></td><td class="dates">19 Dec – 11 Jan <span class="nights">23 nights</span></td></tr>
-        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Australia" target="_blank" rel="noopener">Australia 🇦🇺 ↗</a></td><td class="dates">11 – 23 Jan <span class="nights">12 nights</span></td></tr>
-        <tr class="hub"><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Bali+Indonesia" target="_blank" rel="noopener">Bali 🇮🇩 ↗</a></td><td class="dates">23 Jan – 5 Feb <span class="nights">13 nights</span></td></tr>
+        <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Australia" target="_blank" rel="noopener">Australia 🇦🇺 ↗</a></td><td class="dates">11 Jan – 4 Feb <span class="nights">24 nights</span></td></tr>
         <tr><td class="place"><a href="https://www.google.com/maps/search/?api=1&amp;query=Mexico" target="_blank" rel="noopener">Mexico 🇲🇽 ↗</a></td><td class="dates">from 5 Feb 2027</td></tr>
       </table>
       </div>
@@ -466,7 +470,7 @@
         <a class="thumb" href="#halong-bay"><img src="images/vietnam-halong-bay-boat-trip-sunset-family Large.jpeg?v=nov7b" alt="The family at sunset during their Hạ Long Bay cruise"></a>
         <div class="content">
           <div class="update-meta"><span>October 2026</span><span>Hạ Long Bay</span></div>
-          <h3>Our own little cruise among the islands.</h3>
+          <h3>Our own little cruise among the islands in Vietnam.</h3>
           <p>Swimming, canoeing and sleeping aboard beneath Hạ Long Bay’s extraordinary limestone peaks.</p>
           <a class="read-more" href="#halong-bay">Sail through Hạ Long Bay →</a>
         </div>
@@ -733,15 +737,14 @@
     <div class="sec-head">
       <div>
         <div class="sec-num">Home base</div>
-        <h2>Bali, in three stretches</h2>
+        <h2>Bali, in two stretches</h2>
       </div>
-      <div class="sec-tag">Wood School Bali · Pejeng / Ubud · ~141 days total</div>
+      <div class="sec-tag">Wood School Bali · Pejeng / Ubud · ~127 days total</div>
     </div>
 
     <div class="legstrip">
       <div class="leg" id="leg-1"><div class="n">Bali</div><div class="d">1 Aug – 10 Oct 2026</div><div class="len">71 days</div></div>
       <div class="leg" id="leg-2"><div class="n">Bali</div><div class="d">24 Oct – 18 Dec 2026</div><div class="len">56 days</div></div>
-      <div class="leg" id="leg-3"><div class="n">Bali</div><div class="d">23 Jan – 5 Feb 2027</div><div class="len">14 days</div></div>
     </div>
 
     <div class="sec-head" style="margin-top:56px; margin-bottom:18px;">
@@ -1664,7 +1667,7 @@
 
       <div class="tl-item">
         <div class="tl-dot">•</div>
-        <div class="tl-card"><div class="tl-top" id="loc-australia"><div class="tl-title">Australia 🇦🇺</div><div class="tl-dates">11 – 23 Jan 2027</div></div></div>
+        <div class="tl-card"><div class="tl-top" id="loc-australia"><div class="tl-title">Australia 🇦🇺</div><div class="tl-dates">11 Jan – 4 Feb 2027</div></div></div>
       </div>
 
       <div class="tl-item">
